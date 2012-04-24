@@ -17,7 +17,9 @@
 	           include_once('includes/includeNavigation.php');
 	        ?>
             <section>
-                
+                <?php
+                	echo "Hello world";
+                ?>
             </section>
             
 	    </div>
