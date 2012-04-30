@@ -11,6 +11,7 @@
 
 	</head>
 	<body>
+<<<<<<< HEAD
 		<?php
         include_once ('includes/includeHeader.php');
 		?>
@@ -27,5 +28,25 @@
 		<?php
         include_once ('includes/includeFooter.php');
 		?>
+
+	    <?php
+	       include_once('includes/includeHeader.php');
+	    ?>
+	    <div class="wrapper">
+	        <?php
+	           include_once('includes/includeNavigation.php');
+	        ?>
+            <section class="wrapper">
+                
+
+            <section>
+
+            </section>
+            
+	    </div>
+	    <?php
+	       include_once('includes/includeFooter.php');
+	    ?>
+
 	</body>
 </html>
