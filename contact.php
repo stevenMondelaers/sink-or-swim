@@ -1,11 +1,25 @@
+<?php
+    if(!empty($_POST['subject']) && !empty($_POST['email']) && !empty($_POST['message'])){
+        $subject = $_POST['subject'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+        $headers = 'From: '.$email.'' . "\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+        
+        mail("steven.mondelaers@gmail.com", $subject, $message, $headers);
+        
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Contact | Baseline</title>
-		<?php
+                <?php
           include_once('includes/includeHead.php');
         ?>
+        <title>Contact | <?php echo siteName; ?></title>
+
 		
 	</head>
 	<body>

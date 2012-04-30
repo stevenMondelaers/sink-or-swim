@@ -6,34 +6,66 @@ $linkUrl = $parts[count($parts) - 1];
 ?>
 
 <header>
+
 	<div class="wrapper">
-		<a href="./"> <img src="img/logo.png" class="logo" alt="Logo" /> </a>
 		<div id="user">
 			<?php
-session_start();
 if(empty($_SESSION['user'])){
-    
+
 			?>
-			<a href="login" id="lnkLogin">Log in!<img src="img/arrowDown.png" alt="Arrow down" /></a>
+			<a href="login" id="lnkLogin">Log in!&#9660;</a>
 			<?php
-			
-    if($linkUrl != "register.php" && $linkUrl != "login.php"){
-        ?>
-			<form action="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF']; ?>" method="POST" id="userNav">
-			<label for="username">Username: </label>
-			<input type="text" name="username" id="username" />
-			<label for="password">Password: </label>
-			<input type="password" name="password" id="password" />
-			<input type="submit" value="Log in!" id="btnLogin" />
-			<a href="register">Register</a>
-			</form>
-			<?php
-    }
             }else {
-                
+            echo "<a href='#'>Birger Huysmans (3) &#9660;</a>";
             }
 			?>
 			<!--<a href="#">Birger Huysmans (3)<img src="img/arrowDown.png" alt="Arrow down" /></a>-->
 		</div>
+
+		<a href="./" class="logo clearfix"><img src="img/logo.jpg" alt="logo" /></a>
+
+		<nav>
+			<ul>
+				<li <?php
+                if ($linkUrl == "index.php") { echo "class='current'";
+                }
+				?>>
+					<a href="./">Home</a>
+				</li>
+				<li <?php
+                if ($linkUrl == "records.php") { echo "class='current'";
+                }
+				?>>
+					<a href="records">Records</a>
+				</li>
+				<li <?php
+                if ($linkUrl == "meetings.php") { echo "class='current'";
+                }
+				?>>
+					<a href="meetings">Meetings</a>
+				</li>
+				<li <?php
+                if ($linkUrl == "athletes.php") { echo "class='current'";
+                }
+				?>>
+					<a href="athletes">Athletes</a>
+				</li>
+				<li <?php
+                if ($linkUrl == "faq.php") { echo "class='current'";
+                }
+				?>>
+					<a href="faq">faq</a>
+				</li>
+				<li <?php
+                if ($linkUrl == "contact.php") { echo "class='current'";
+                }
+				?>>
+					<a href="contact">Contact</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="clearfix"></div>
+
 	</div>
 </header>

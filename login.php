@@ -1,13 +1,5 @@
 <?php
 
-    if(!empty($_POST['email']) && !empty($_POST['password'])){
-        require_once 'classes/database.class.php';
-        
-        $database = new Database();
-        $database->selectSingleUser;
-        
-        
-    }
 
 ?>
 
@@ -15,12 +7,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Login | Baseline</title>
-		
-		<?php
-		  include_once('includes/includeHead.php');
-		?>
-		
+                <?php
+          include_once('includes/includeHead.php');
+        ?>
+        <title>Login | <?php echo siteName; ?></title>
+
 	</head>
 	<body>
 	    <?php

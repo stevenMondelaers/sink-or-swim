@@ -1,3 +1,8 @@
+<?php
+    
+    define("siteName", "Swimstats")
+    
+?>
 <link rel="shortcut icon" href="/favicon.ico" />
 
 <link href="css/reset.css" type="text/css" rel="stylesheet" />

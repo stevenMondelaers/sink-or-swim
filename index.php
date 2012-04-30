@@ -2,10 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Home | Baseline</title>
+		
+		
         <?php
           include_once('includes/includeHead.php');
         ?>
+		
+		<title>Home | <?php echo siteName; ?></title>
 		
 	</head>
 	<body>
@@ -16,13 +19,13 @@
 	        <?php
 	           include_once('includes/includeNavigation.php');
 	        ?>
-            <section>
+            <section class="wrapper">
                 
             </section>
             
 	    </div>
-	    <footer>
-	        
-	    </footer>
+	    <?php
+	       include_once('includes/includeFooter.php');
+	    ?>
 	</body>
 </html>

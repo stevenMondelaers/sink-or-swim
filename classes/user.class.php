@@ -25,10 +25,12 @@ class User {
             case "Birthdate" :
                 $this -> m_dBirthdate = $p_vValue;
                 break;
+            default:
+                break;
         }
     }
 
-    public function __get($p_sProperty, $p_vValue) {
+    public function __get($p_sProperty) {
         $vResult = null;
 
         switch($p_sProperty) {
@@ -43,6 +45,8 @@ class User {
                 $vResult = m_sFirstName;
             case "Birthdate" :
                 $vResult = m_dBirthdate;
+                break;
+            default:
                 break;
         }
 
