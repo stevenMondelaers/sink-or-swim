@@ -81,3 +81,7 @@ header nav > ul > li > a {
 .pageNotFoundError {
 	text-align: center;
 }
+
+fieldset > input {
+	display: block;
+}
