@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Records | Baseline</title>
-        <?php
+                <?php
           include_once('includes/includeHead.php');
         ?>
+        <title>Records | <?php echo siteName; ?></title>
+
 		
 	</head>
 	<body>

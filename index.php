@@ -19,8 +19,15 @@
 	        <?php
 	           include_once('includes/includeNavigation.php');
 	        ?>
+<<<<<<< HEAD
             <section class="wrapper">
                 
+=======
+            <section>
+                <?php
+                	echo "Hello world";
+                ?>
+>>>>>>> 038ec898c32cc13b6313b5a0f0a166f0006c80ea
             </section>
             
 	    </div>

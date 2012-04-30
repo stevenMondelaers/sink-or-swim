@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_URI'] != $errorPageUrl)
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Home | Baseline</title>
-		<?php
+        <?php
           include_once('includes/includeHead.php');
         ?>
+		<title>Page not found | <?php echo siteNamek; ?></title>
 
 	</head>
 	<body>

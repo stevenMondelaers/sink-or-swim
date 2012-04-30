@@ -2,11 +2,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Meetings | Baseline</title>
-		<?php
+                <?php
           include_once('includes/includeHead.php');
         ?>
-		
+        <title>Meetings | <?php echo siteName; ?></title>
+
 	</head>
 	<body>
 	    <?php

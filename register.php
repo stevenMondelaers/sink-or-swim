@@ -2,10 +2,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Login | Baseline</title>
-		<?php
-		  include_once('includes/includeHead.php');
-		?>
+                <?php
+          include_once('includes/includeHead.php');
+        ?>
+        <title>Register | <?php echo siteName; ?></title>
+
 	</head>
 	<body>
 	    <?php

@@ -2,10 +2,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>FAQ | Baseline</title>
-		<?php
+                <?php
           include_once('includes/includeHead.php');
         ?>
+        <title>FAQ | <?php echo siteName; ?></title>
+
 		
 	</head>
 	<body>
