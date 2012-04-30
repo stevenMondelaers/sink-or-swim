@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $errorPageUrl = $_SERVER["PHP_SELF"];
 $pos = strrpos($errorPageUrl, ".php");
 $errorPageUrl = substr($errorPageUrl, 0, $pos);

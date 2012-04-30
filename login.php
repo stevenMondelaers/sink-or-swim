@@ -1,5 +1,22 @@
 <?php
 
+session_start();
+
+    if(!empty($_SESSION['zwemmerId']))
+        header("Location: ./");
+    
+
+    if(!empty($_POST['email']) && !empty($_POST['password'])){
+        require_once('classes/database.class.php');
+        require_once('classes/user.class.php');
+        
+        $user = new User();
+        $user->logIn($_POST['email'], $_POST['password']);
+        
+        $db = new Database();
+        //echo $db->selectUserLogin($_POST['email'], $_POST['password']);
+        
+    }
 
 ?>
 

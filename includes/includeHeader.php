@@ -8,21 +8,25 @@ $linkUrl = $parts[count($parts) - 1];
 <header>
 
 	<div class="wrapper">
+
 		<div id="user">
 			<?php
-if(empty($_SESSION['user'])){
+if(empty($_SESSION['userId'])){
 
 			?>
 			<a href="login" id="lnkLogin">Log in!&#9660;</a>
+
 			<?php
             }else {
-            echo "<a href='#'>Birger Huysmans (3) &#9660;</a>";
+			?>
+                <a href="logout"><?php echo $_SESSION['userFirstName']." ".$_SESSION['userName'] ?></a>
+			<?php
             }
 			?>
 			<!--<a href="#">Birger Huysmans (3)<img src="img/arrowDown.png" alt="Arrow down" /></a>-->
 		</div>
 
-		<a href="./" class="logo clearfix"><img src="img/logo.jpg" alt="logo" /></a>
+		<a href="./" class="logo"><img src="img/logo.jpg" alt="logo" /></a>
 
 		<nav>
 			<ul>

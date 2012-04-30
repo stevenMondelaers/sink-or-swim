@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,7 +14,6 @@
 
 	</head>
 	<body>
-<<<<<<< HEAD
 		<?php
         include_once ('includes/includeHeader.php');
 		?>
@@ -21,7 +23,7 @@
 			?>
 
 			<section class="wrapper">
-
+                
 			</section>
 
 		</div>
@@ -38,8 +40,9 @@
 	        ?>
             <section class="wrapper">
                 
-
-            <section>
+                <?php
+                    
+                ?>
 
             </section>
             

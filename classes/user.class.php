@@ -3,13 +3,22 @@
 /**
  *
  */
+
+/**
+ *
+ */
 class User {
 
     private $m_iId;
-    private $m_sEmail;
     private $m_sName;
     private $m_sFirstName;
-    private $d_dBirthdate;
+    private $m_sEmail;
+    private $m_dBirthdate;
+    private $m_sLicenseNumber;
+
+    function __construct() {
+
+    }
 
     public function __set($p_sProperty, $p_vValue) {
         switch($p_sProperty) {
@@ -25,7 +34,9 @@ class User {
             case "Birthdate" :
                 $this -> m_dBirthdate = $p_vValue;
                 break;
-            default:
+            case "LicenseNumber" :
+                $this -> m_sLicenseNumber = $p_vValue;
+            default :
                 break;
         }
     }
@@ -38,19 +49,42 @@ class User {
                 $vResult = $this -> m_iId;
                 break;
             case "Email" :
-                $vResult = m_sEmail;
+                $vResult = $this -> m_sEmail;
             case "Name" :
-                $vResult = m_sName;
+                $vResult = $this -> m_sName;
             case "FirstName" :
-                $vResult = m_sFirstName;
+                $vResult = $this -> m_sFirstName;
             case "Birthdate" :
-                $vResult = m_dBirthdate;
+                $vResult = $this -> m_dBirthdate;
                 break;
-            default:
+            case "LicenseNumber" :
+                $vResult = $this -> m_sLicenseNumber;
+            default :
                 break;
         }
 
         return $vResult;
+    }
+
+    public function logIn($p_sEmail, $p_sPassword) {
+        include_once ('classes/database.class.php');
+        $db = new Database();
+
+        try {
+            $sqlResult = $db -> selectUserLogin($p_sEmail, $p_sPassword);
+            $_SESSION['userId'] = $sqlResult[0];
+            $_SESSION['userName'] = $sqlResult[1];
+            $_SESSION['userFirstName'] = $sqlResult[2];
+            $_SESSION['userEmail'] = $sqlResult[3];
+            $_SESSION['userBirthDate'] = $sqlResult[5];
+            $_SESSION['userLicenseNumber'] = $sqlResult[6];
+            print_r($_SESSION);
+            header("Location: ./");
+
+        } catch(exception $e) {
+            echo "Something went wrong";
+        }
+
     }
 
 }

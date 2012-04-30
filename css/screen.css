@@ -9,6 +9,7 @@ header {
 	width: 950px;
 	padding-right: 30px;
 	margin: 0 auto 0 auto;
+	clear: both;
 }
 
 .clearfix {
@@ -17,6 +18,7 @@ header {
 
 #user {
 	float: right;
+	display: inline-block;
 	text-align: center;
 	background-color: #444;
 	border-bottom-left-radius: 10px;
@@ -25,6 +27,10 @@ header {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	font-size: 15px;
+}
+
+#user > ul {
+	
 }
 
 #user a {
@@ -39,7 +45,7 @@ header {
 	display: inline-block;
 	float: left;
 	margin-left: 28px;
-	margin-top: 26px;
+	margin-top: 59px;
 	height: auto;
 }
 
@@ -80,6 +86,19 @@ header nav > ul > li > a {
 
 .pageNotFoundError {
 	text-align: center;
+}
+
+fieldset {
+	display: inline-block;
+	padding: 10px;
+	border: 1px solid #CCC;
+}
+
+fieldset > legend {
+	padding-left: 5px;
+	padding-right: 5px;
+	border-bottom: 0px;
+	width: auto;
 }
 
 fieldset > input {
