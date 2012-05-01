@@ -1,6 +1,6 @@
 <?php
 session_start();
-    if(!empty($_POST['subject']) && !empty($_POST['email']) && !empty($_POST['message'])){
+    if(!empty($_POST['subject']) && !empty($_POST['email']) && !empty($_POST['message']) && $_POST['antiSpam'] == "zeven"){
         $subject = $_POST['subject'];
         $email = $_POST['email'];
         $message = $_POST['message'];
@@ -32,7 +32,6 @@ session_start();
 	           include_once('includes/includeNavigation.php');
 	        ?>
             <section>
-                
                 <form action="<?php echo 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];?>" method="POST">
                     <fieldset>
                         <legend>Contact us!</legend>
@@ -44,10 +43,11 @@ session_start();
                     <textarea name="message" id="message">
                         
                     </textarea>
+                    <label for="antiSpam">Hoeveel is vier plus drie? (anti-spam)</label>
+                    <input type="text" id="antiSpam" name="antiSpam" />
                     <input type="submit" id="submit" value="Submit!" class="btn-info" />
                     </fieldset>
                 </form>
-                
             </section>
             
 	    </div>

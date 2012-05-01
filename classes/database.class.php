@@ -13,28 +13,38 @@ class Database {
     function __construct() {
         $this -> link = new mysqli($this -> m_sHost, $this -> m_sUser, $this -> m_sPassword, $this -> m_sDatabase);
     }
-    
-    function selectUserLogin($p_sEmail, $p_sPassword){
-        $email = $this->link->real_escape_string($p_sEmail);
-        $password = md5($this->link->real_escape_string($p_sPassword));
-        
-        
+
+    public function selectUserLogin($p_sEmail, $p_sPassword) {
+        $email = $this -> link -> real_escape_string($p_sEmail);
+        $password = md5($this -> link -> real_escape_string($p_sPassword));
+
         $sql = "SELECT * FROM zwemmer
                 WHERE email = '$email' AND Wachtwoord = '$password';";
-        
-        $result = $this->link->query($sql);
-        
-        if($result ->num_rows == 1){
-            return $result->fetch_row();    
-        }else {
+
+        $result = $this -> link -> query($sql);
+
+        if ($result -> num_rows == 1) {
+            return $result -> fetch_row();
+        } else {
             throw new Exception("Faulty login credentials", 1);
-            
+
         }
-        
-        //return $result->num_rows;
-        
     }
     
-}
+    public function registerUser($name, $firstName, $email, $password, $birthDate, $licenseNumber){
+        
+        $name = $this->link->real_escape_string($name);
+        $firstName = $this->link->real_escape_string($firstName);
+        $email = $this->link->real_escape_string($email);
+        $password = md5($password);
+        $birthDate = $this->link->real_escape_string($birthDate);
+        $licenseNumber = $this->link->real_escape_string($licenseNumber);
+                
+        $sql = "INSERT INTO zwemmer (Naam, Voornaam, Email, Wachtwoord, Geboortedatum, Licentienummer)
+                VALUES ('$name', '$firstName', '$email', '$password', '$birthDate', '$licenseNumber');";
+                     
+        $this->link->query($sql);
+    }
 
+}
 ?>

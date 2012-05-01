@@ -15,10 +15,8 @@ class User {
     private $m_sEmail;
     private $m_dBirthdate;
     private $m_sLicenseNumber;
-
-    function __construct() {
-
-    }
+    private $m_sPassword;
+    private $m_sPasswordConfirm;
 
     public function __set($p_sProperty, $p_vValue) {
         switch($p_sProperty) {
@@ -36,6 +34,10 @@ class User {
                 break;
             case "LicenseNumber" :
                 $this -> m_sLicenseNumber = $p_vValue;
+            case "Password" :
+                $this -> m_sPassword = $p_vValue;
+            case "PasswordConfirm" :
+                $this -> m_sPasswordConfirm = $p_vValue;
             default :
                 break;
         }
@@ -59,6 +61,10 @@ class User {
                 break;
             case "LicenseNumber" :
                 $vResult = $this -> m_sLicenseNumber;
+            case "Password" :
+                $vResult = $this -> m_sPassword;
+            case "PasswordConfirm" :
+                $vResult = $this -> m_sPasswordConfirm;
             default :
                 break;
         }
@@ -85,6 +91,17 @@ class User {
             echo "Something went wrong";
         }
 
+    }
+    
+    public function register(){
+        require_once 'classes/database.class.php';
+        
+        $db = new Database();
+        $db -> registerUser($this->m_sName, $this->m_sFirstName, $this->m_sEmail, $this->m_sPassword, $this->m_dBirthdate, $this->m_sLicenseNumber);
+        
+        
+        
+        
     }
 
 }

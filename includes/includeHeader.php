@@ -5,6 +5,20 @@ $parts = Explode('/', $currentFile);
 $linkUrl = $parts[count($parts) - 1];
 ?>
 
+<?php
+if(!empty($feedback)){
+?>
+<div id="feedbackContainer">
+	<div id="feedback">
+		<?php
+        echo $feedback;
+		?>
+	</div>
+</div>
+<?php
+}
+?>
+
 <header>
 
 	<div class="wrapper">
@@ -19,11 +33,11 @@ if(empty($_SESSION['userId'])){
 			<?php
             }else {
 			?>
-                <a href="logout"><?php echo $_SESSION['userFirstName']." ".$_SESSION['userName'] ?></a>
+			<a href="logout"><?php echo $_SESSION['userFirstName']." ".$_SESSION['userName']."&#9660;"
+			?></a>
 			<?php
             }
 			?>
-			<!--<a href="#">Birger Huysmans (3)<img src="img/arrowDown.png" alt="Arrow down" /></a>-->
 		</div>
 
 		<a href="./" class="logo"><img src="img/logo.jpg" alt="logo" /></a>
