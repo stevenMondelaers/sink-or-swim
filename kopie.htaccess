@@ -1,0 +1,5 @@
+Options +FollowSymlinks
+Options -Indexes
+RewriteEngine on
+RewriteRule ^([^.]+)/?$ $1.php
+ErrorDocument 404 /Aptana/sink-or-swim/404

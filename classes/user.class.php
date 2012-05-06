@@ -1,12 +1,10 @@
 <?php
 
-/**
- *
- */
-
-/**
- *
- */
+/*
+ * Deze klasse behandelt de logica die met gebruikers te maken heeft
+ * inloggen, registreren, ...
+ * */
+ 
 class User {
 
     private $m_iId;
@@ -71,7 +69,7 @@ class User {
 
         return $vResult;
     }
-
+    
     public function logIn($p_sEmail, $p_sPassword) {
         include_once ('classes/database.class.php');
         $db = new Database();
@@ -86,11 +84,9 @@ class User {
             $_SESSION['userLicenseNumber'] = $sqlResult[6];
             print_r($_SESSION);
             header("Location: ./");
-
         } catch(exception $e) {
             echo "Something went wrong";
         }
-
     }
     
     public function register(){

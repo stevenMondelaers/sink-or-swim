@@ -1,6 +1,8 @@
 <?php
 /**
  *
+ * Deze klasse handelt alle sql queries af
+ *
  */
 class Database {
 
@@ -27,23 +29,33 @@ class Database {
             return $result -> fetch_row();
         } else {
             throw new Exception("Faulty login credentials", 1);
-
         }
     }
-    
-    public function registerUser($name, $firstName, $email, $password, $birthDate, $licenseNumber){
-        
-        $name = $this->link->real_escape_string($name);
-        $firstName = $this->link->real_escape_string($firstName);
-        $email = $this->link->real_escape_string($email);
+
+    public function registerUser($name, $firstName, $email, $password, $birthDate, $licenseNumber) {
+
+        $name = $this -> link -> real_escape_string($name);
+        $firstName = $this -> link -> real_escape_string($firstName);
+        $email = $this -> link -> real_escape_string($email);
         $password = md5($password);
-        $birthDate = $this->link->real_escape_string($birthDate);
-        $licenseNumber = $this->link->real_escape_string($licenseNumber);
-                
+        $birthDate = $this -> link -> real_escape_string($birthDate);
+        $licenseNumber = $this -> link -> real_escape_string($licenseNumber);
+
         $sql = "INSERT INTO zwemmer (Naam, Voornaam, Email, Wachtwoord, Geboortedatum, Licentienummer)
                 VALUES ('$name', '$firstName', '$email', '$password', '$birthDate', '$licenseNumber');";
-                     
-        $this->link->query($sql);
+
+        $this -> link -> query($sql);
+    }
+
+    public function selectPersonalRankings($id) {
+        $sql = "SELECT Tijd, wedstrijd.`Datum`, wedstrijd.`Plaats`, `ZwemmerID`
+                FROM resultaat
+                LEFT JOIN wedstrijd
+                ON resultaat.`WedstrijdID` = wedstrijd.`WedstrijdID`
+                WHERE `ZwemmerID` = " . $id."
+                ORDER BY tijd ASC";
+
+        return $this -> link -> query($sql);
     }
 
 }

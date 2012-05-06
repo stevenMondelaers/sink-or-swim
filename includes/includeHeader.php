@@ -33,8 +33,12 @@ if(empty($_SESSION['userId'])){
 			<?php
             }else {
 			?>
-			<a href="logout"><?php echo $_SESSION['userFirstName']." ".$_SESSION['userName']."&#9660;"
+			<a href="#" id="lnkUser"><?php echo $_SESSION['userFirstName']." ".$_SESSION['userName']."&#9660;"
 			?></a>
+			<div id="userMenu">
+			    <a href="personalRanking">Personal ranking</a>
+			    <a href="logout">Logout</a>
+			</div>
 			<?php
             }
 			?>

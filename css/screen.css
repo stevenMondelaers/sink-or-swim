@@ -17,6 +17,9 @@ header {
 }
 
 #user {
+	position: absolute;
+	top: 0;
+	margin-left: 740px;
 	float: right;
 	display: inline-block;
 	text-align: center;
@@ -29,8 +32,16 @@ header {
 	font-size: 15px;
 }
 
-#user > ul {
-	
+#userMenu {
+	display: none;
+	padding-top: 20px;
+}
+
+#userMenu a {
+	text-align: left;
+	padding-left: 10px;
+	display: block;
+	margin-bottom: 5px;
 }
 
 #user a {
@@ -52,7 +63,7 @@ header {
 header nav {
 	display: inline-block;
 	float: right;
-	margin-top: 40px;
+	margin-top: 56px;
 	font-size: 15px;
 	text-transform: uppercase;
 }
@@ -117,9 +128,6 @@ fieldset > span, fieldset > input {
 	margin-left: auto;
 	margin-right: auto;
 	width: 200px;
-	
-	
-	
 	text-align: center;
 	background-color: #444;
 	border-bottom-left-radius: 10px;
@@ -129,4 +137,48 @@ fieldset > span, fieldset > input {
 	padding-bottom: 5px;
 	font-size: 15px;
 	color: #FFF;
+}
+
+.times {
+	display: inline-block;
+	width: 320px;
+}
+
+.times tr td {
+	width: 100px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+
+.times tr td:last-child {
+	width: 13px;
+	margin-top: 5px;
+}
+
+.bronze {
+	background: url('../img/achievements/bronze.png');
+	background-repeat: no-repeat;
+}
+
+.times tr:nth-child(even) {
+	background-color: #e7e9e8;
+}
+
+.achievement {
+	width: 13px;
+	height: 13px;
+}
+
+.timesHeading {
+	width: 320px;
+}
+
+.timesHeading a {
+	float: right;
+}
+
+li {
+	list-style: none;
 }

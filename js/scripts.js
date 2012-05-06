@@ -1,12 +1,8 @@
 $(document).ready(function(){
-	/*$("#lnkLogin").click(function(){
-		
-		console.log("Start to slide");
-		$("#userNav").slideToggle(function(){
-			console.log("Slide complete");
-		});
+	$("#lnkUser").click(function(){
+		$("#userMenu").slideToggle();
 		
 		return (false);
 		
-	});*/	
+	});
 });
