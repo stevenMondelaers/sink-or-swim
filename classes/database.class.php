@@ -8,7 +8,7 @@ class Database {
 
     private $m_sHost = "localhost";
     private $m_sUser = "root";
-    private $m_sPassword = "";
+    private $m_sPassword = "root";
     private $m_sDatabase = "php_project";
     public $link = null;
 
@@ -28,7 +28,7 @@ class Database {
         if ($result -> num_rows == 1) {
             return $result -> fetch_row();
         } else {
-            throw new Exception("Faulty login credentials", 1);
+        	throw new Exception("Please check your email address and/or password", 1);
         }
     }
 
@@ -54,6 +54,12 @@ class Database {
                 ON resultaat.`WedstrijdID` = wedstrijd.`WedstrijdID`
                 WHERE `ZwemmerID` = " . $id."
                 ORDER BY tijd ASC";
+
+        return $this -> link -> query($sql);
+    }
+	
+	public function selectDistances() {
+        $sql = "SELECT * FROM afstand";
 
         return $this -> link -> query($sql);
     }

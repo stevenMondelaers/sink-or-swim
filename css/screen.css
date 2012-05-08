@@ -16,21 +16,8 @@ header {
 	clear: both;
 }
 
-#user {
-	position: absolute;
-	top: 0;
-	margin-left: 740px;
-	float: right;
-	display: inline-block;
-	text-align: center;
-	background-color: #444;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	width: 200px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-size: 15px;
-}
+
+
 
 #userMenu {
 	display: none;
@@ -44,9 +31,11 @@ header {
 	margin-bottom: 5px;
 }
 
+
 #user a {
 	color: #fff;
 }
+
 
 #userNav {
 	display: none;
@@ -55,8 +44,8 @@ header {
 .logo {
 	display: inline-block;
 	float: left;
-	margin-left: 28px;
-	margin-top: 59px;
+	margin-left: 0px;
+	margin-top: 43px;
 	height: auto;
 }
 
@@ -181,4 +170,200 @@ fieldset > span, fieldset > input {
 
 li {
 	list-style: none;
+}
+
+
+
+
+/* -------------------------------------------------------Login Box----------------------------------------------------------------- */
+
+#topnav {
+    font-size:13px;
+    line-height:23px;
+    text-align:center;
+    font-weight:bold;
+    color:#fff;
+}
+
+a.signin span {
+    background-image:url("../img/toggle_down.png");
+    background-repeat:no-repeat;
+    background-position:100% 50%;
+    padding:5px 30px 6px 0;
+}
+
+#register{
+	font-size: 10px;
+	float:left;
+	margin-left: 1px;
+	margin-top: 10px;
+}
+
+#signin_menu{
+	display: none;
+	width:175px;
+	border: none;
+	z-index: 100;
+	height: 135px;
+}
+
+#signin_menu input[type=text], #signin_menu input[type=password] {
+    display:block;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    font-size:11px;
+    margin:0 0 5px;
+    padding:5px;
+    width:160px;
+}
+
+#signin_submit {
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    background:#39d url('../img/bg-btn-blue.png') repeat-x scroll 0 0;
+    border:1px solid #547cb9;
+    color:#fff;
+    text-shadow:0 -1px 0 #39d;
+    padding:4px 10px 5px;
+    font-size:11px;
+    margin:-39px 5px 0 113px;
+    font-weight:bold;
+}
+
+#signin_menu label {
+    font-weight:normal;
+    color: #fff;
+    text-align: left;
+    font-size: 10px;
+    margin:0;
+}
+
+a.signin.menu-open span {
+    background-image:url("../img/toggle_up.png");
+}
+
+/* -------------------------------------------------------Profile Box--------------------------------------------------------------- */
+
+#user {
+	position: absolute;
+	top: 0;
+	margin-left: 740px;
+	float: right;
+	display: inline-block;
+	text-align: center;
+	background-color: #444; 
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	width: 200px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#userMenu a{
+	display:block;
+	width: 185px;
+	height: 20px;
+	border-bottom: 1px dotted #fff;
+	margin-left: 5px;
+	margin-bottom: 10px;
+	padding-left: 2px;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+.username span{
+	background-image:url("../img/toggle_down.png");
+    background-repeat:no-repeat;
+    background-position:100% 50%;
+    padding:5px 30px 6px 0;
+}
+
+a.username.menu-open span {
+    background-image:url("../img/toggle_up.png");
+}
+
+/* -------------------------------------------------------Registration-------------------------------------------------------------- */
+
+#regForm{
+	float:left;
+	width: 400px;
+	margin-top: 10px;
+	background-color:#444;
+	-moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
+
+#regForm fieldset{
+	border: none;
+	margin-top: 10px;
+}
+
+#regForm legend{
+	font-weight: bold;
+	font-size: 20px;
+	color:#fff;
+	margin-left: 13px;
+}
+
+#regForm label{
+	font-size: 11px;
+	color:#fff;
+	width: 120px;
+	display: block;
+	float: left;
+	line-height: 27px;
+	margin-left:-5px;
+}
+
+#regForm input[type=text], #regForm input[type=password], #regForm input[type=email]{
+	font-size: 11px;
+	width: 210px;
+	border: 1px solid #444;
+	display:block;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+}
+
+.btn-info{
+	-moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    background:#39d url('../img/bg-btn-blue.png') repeat-x scroll 0 0;
+    border:1px solid #547cb9;
+    color:#fff;
+    text-shadow:0 -1px 0 #39d;
+    padding:4px 10px 5px;
+    font-size:11px;
+    margin:0 5px 10px 265px;
+    font-weight:bold;
+    float: right;
+}
+
+/* -------------------------------------------------------Information--------------------------------------------------------------- */
+
+#information{
+	display:block;
+	width:400px;
+	float:left;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+
+#information li{
+	list-style-image: url("../img/check.png");
+	font-size: 17px;
+	margin-top: 20px;
+}
+
+#information span{
+	color:#547cb9;
+	font-style: italic;
+}
+
+#information h1{
+	font-size: 20px;
+	color: #444;
+	font-weight: bold;
+	margin-bottom: -10px;
 }
