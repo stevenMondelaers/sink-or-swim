@@ -28,7 +28,8 @@ class Database {
         if ($result -> num_rows == 1) {
             return $result -> fetch_row();
         } else {
-            throw new Exception("Faulty login credentials", 1);
+            throw new Exception($sql, 1);
+            //throw new Exception("Faulty login credentials", 1);
         }
     }
 
@@ -47,13 +48,21 @@ class Database {
         $this -> link -> query($sql);
     }
 
-    public function selectPersonalRankings($id) {
+    public function selectPersonalRankings($id, $afstand) {
+        $afstand = $afstand;
+
         $sql = "SELECT Tijd, wedstrijd.`Datum`, wedstrijd.`Plaats`, `ZwemmerID`
                 FROM resultaat
                 LEFT JOIN wedstrijd
                 ON resultaat.`WedstrijdID` = wedstrijd.`WedstrijdID`
-                WHERE `ZwemmerID` = " . $id."
+                WHERE `ZwemmerID` = " . $id . " AND `AfstandID` = " . $this -> link -> real_escape_string($afstand) . "
                 ORDER BY tijd ASC";
+
+        return $this -> link -> query($sql);
+    }
+
+    public function selectDistances() {
+        $sql = "SELECT * FROM afstand";
 
         return $this -> link -> query($sql);
     }

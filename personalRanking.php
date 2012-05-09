@@ -4,8 +4,13 @@ session_start();
 include_once ('classes/database.class.php');
 
 $db = new Database();
-$rankings = $db -> selectPersonalRankings($_SESSION['userId']);
 
+$iAfstand = 1;
+if (!empty($_GET['afstand']))
+    $iAfstand = $_GET['afstand'];
+
+$rankings = $db -> selectPersonalRankings($_SESSION['userId'], $iAfstand);
+$afstanden = $db -> selectDistances();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +22,21 @@ $rankings = $db -> selectPersonalRankings($_SESSION['userId']);
 		?>
 
 		<title>Personal ranking | <?php echo siteName; ?></title>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				$("#btnFilter").hide();
+
+				$("#drpAfstand").change(function() {
+
+					var selectedDistance = $(this).val();
+
+					$(this).parent().submit();
+
+				});
+			});
+		</script>
 
 	</head>
 	<body>
@@ -48,16 +68,28 @@ $rankings = $db -> selectPersonalRankings($_SESSION['userId']);
 						?>
 					</li>
 					<li>
-						<h3>Personal rankings for 50m freestyle</h3>
+						<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+							<select id="drpAfstand" name="afstand">
+								<?php
+while ($afstand = $afstanden -> fetch_array()) {
+								?>
+								<option value="<?php echo $afstand['AfstandID']; ?>" <?php
+                                    if ($iAfstand == $afstand['AfstandID']) { echo "selected='selected'";
+                                    }
+ ?>><?php echo $afstand['Omschrijving']; ?></option>
+								<?php
+                                }
+								?>
+							</select>
+							<br />
+							<input type="submit" value="Filter!" id="btnFilter" class="btn-info" />
+						</form>
 					</li>
 				</ul>
 
 				<div id="times">
 					<div class="left">
-						<section class="timesHeading">
-							<span>Long course (50m)</span>
-							<a href="#"><img src="img/graph.png" alt="Graph" /></a>
-						</section>
+						
 						<table class="times">
 							<?php
 while($ranking = $rankings->fetch_array()){

@@ -85,7 +85,8 @@ class User {
             print_r($_SESSION);
             header("Location: ./");
         } catch(exception $e) {
-            echo "Something went wrong";
+            //echo "Something went wrong";
+            echo $e->getMessage();
         }
     }
     

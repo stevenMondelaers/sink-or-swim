@@ -40,10 +40,6 @@ session_start();
 	        ?>
             <section class="wrapper">
                 
-                <?php
-                    
-                ?>
-
             </section>
             
 	    </div>

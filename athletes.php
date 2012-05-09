@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+
+
 ?><!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -20,6 +23,7 @@ session_start();
 	           include_once('includes/includeNavigation.php');
 	        ?>
             <section>
+                
                 
                 
             </section>
