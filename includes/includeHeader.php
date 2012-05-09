@@ -1,8 +1,8 @@
 <?php
-
 $currentFile = $_SERVER["PHP_SELF"];
 $parts = Explode('/', $currentFile);
 $linkUrl = $parts[count($parts) - 1];
+
 ?>
 
 <?php
@@ -22,21 +22,39 @@ if(!empty($feedback)){
 <header>
 
 	<div class="wrapper">
-
 		<div id="user">
 			<?php
-if(empty($_SESSION['userId'])){
-
+				if(empty($_SESSION['userId'])){
 			?>
-			<a href="login" id="lnkLogin">Log in!&#9660;</a>
+			<div id="topnav" class="topnav"><a href="login" class="signin"><span>Sign in</span></a></div>
+			
+			<fieldset id="signin_menu">
+    			<form method="post" id="signin" action="login">
+      			<label for="email">Email</label>
+      			<input id="email"name="email" value="" title="username" tabindex="4" type="text">
+      			<p>
+        			<label for="password">Password</label>
+        			<input id="password" name="password" value="" title="password" tabindex="5" type="password">
+        			<a id="register" href="register">No account? Register!</a>
+      			</p>
+      			<p>    
+      				  				
+        			<input id="signin_submit" value="Sign in" tabindex="6" type="submit">
+      			</p>
+      		</form>
+  			</fieldset>
 
 			<?php
             }else {
 			?>
-			<a href="#" id="lnkUser"><?php echo $_SESSION['userFirstName']." ".$_SESSION['userName']."&#9660;"
-			?></a>
+			<div id="ProfileNav" class="topnav">
+			<a href="#" id="lnkUser" class="username"><span><?php echo $_SESSION['userFirstName']." ".$_SESSION['userName']
+			?></span></a>
+			</div>
 			<div id="userMenu">
-			    <a href="personalRanking">Personal ranking</a>
+			    <a href="profile">Profile</a>
+			    <a href="add_times">Add times</a>
+			    <a href="achievements">Achievements</a>
 			    <a href="logout">Logout</a>
 			</div>
 			<?php
