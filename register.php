@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if(!empty($_SESSION['userId'])){
-	header("Location: profile");
-}
-
 if (!empty($_POST['email']) && !empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['password']) && !empty($_POST['passwordConfirm']) && !empty($_POST['licenseNumber']) && !empty($_POST['birthDate'])) {
     require_once 'classes/user.class.php';
 
@@ -14,7 +10,7 @@ if (!empty($_POST['email']) && !empty($_POST['name']) && !empty($_POST['firstNam
         $user -> Email = $_POST['email'];
         $user -> Name = $_POST['name'];
         $user -> FirstName = $_POST['firstName'];
-		$user -> Sex = $_POST['sex'];
+	$user -> Sex = $_POST['sex'];
         $user -> Password = $_POST['password'];
         $user -> PasswordConfirm = $_POST['passwordConfirm'];
         $user -> LicenseNumber = $_POST['licenseNumber'];

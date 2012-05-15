@@ -3,7 +3,6 @@
     define("siteName", "Swimstats")
     
 ?>
-<link rel="shortcut icon" href="/favicon.ico" />
 
 <link href="css/reset.css" type="text/css" rel="stylesheet" />
 <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" type="text/css" rel="stylesheet" />

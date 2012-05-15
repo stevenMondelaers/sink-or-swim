@@ -397,3 +397,20 @@ a.username.menu-open span {
 li {
 	list-style: none;
 }
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+#times > div {
+	width: 450px;
+}
+
+.wrapper ul {
+	margin-left: 0px;
+	margin-top: 15px;
+}

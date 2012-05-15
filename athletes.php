@@ -58,7 +58,7 @@ $allSwimmers = $o_Swimmer->getAllSwimmer();
 						while($n = $allSwimmers->fetch_assoc())
 						{
 							$listUser = "<tr>";
-							$listUser.=		"<td><a href=#>".$n['Naam'].", ".$n['Voornaam']."</a></td>";
+							$listUser.=		"<td><a href='profile/".$n['ZwemmerID']."'>".$n['Naam'].", ".$n['Voornaam']."</a></td>";
 							$listUser.=		"<td>".$n['Geboortedatum']."</td>";
 							$listUser.=		"<td>".$n['Licentienummer']."</td>";
 							$listUser.=		"<td id='medal'></td>";
