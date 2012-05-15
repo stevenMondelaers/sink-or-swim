@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (!empty($_SESSION['userId']))
@@ -9,24 +8,23 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     require_once ('classes/database.class.php');
     require_once ('classes/user.class.php');
 
-	try {
-		$user = new User();
-    	$user -> logIn($_POST['email'], $_POST['password']);
-	}catch (exception $e){
-		$feedback = $e->getMessage();
-	}
+    $user = new User();
+    $user -> logIn($_POST['email'], $_POST['password']);
 
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+
 		<?php
         include_once ('includes/includeHead.php');
 		?>
-		<title>Login | <?php echo siteName; ?></title>
+
+		<title>Home | <?php echo siteName; ?></title>
 
 	</head>
 	<body>
@@ -37,26 +35,35 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 			<?php
             include_once ('includes/includeNavigation.php');
 			?>
-			<section>
-				<form method="POST" action="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF']; ?>">
-					<fieldset>
-						<legend>
-							Log in!
-						</legend>
-						<label for="email">E-mail: </label>
-						<input type="email" id="email" name="email" />
-						<label for="password">Password: </label>
-						<input type="password" name="password" id="password" />
-						<span>
-							<input type="submit" value="Log in!" class="btn-info" />
-							<a href="register">Register</a></span>
-					</fieldset>
-				</form>
+
+			<section class="wrapper">
+                
 			</section>
 
 		</div>
-		<footer>
+		<?php
+        include_once ('includes/includeFooter.php');
+		?>
 
-		</footer>
+	    <?php
+	       include_once('includes/includeHeader.php');
+	    ?>
+	    <div class="wrapper">
+	        <?php
+	           include_once('includes/includeNavigation.php');
+	        ?>
+            <section class="wrapper">
+                
+                <?php
+                    
+                ?>
+
+            </section>
+            
+	    </div>
+	    <?php
+	       include_once('includes/includeFooter.php');
+	    ?>
+
 	</body>
 </html>

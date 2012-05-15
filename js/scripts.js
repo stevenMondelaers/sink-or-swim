@@ -1,20 +1,22 @@
 $(document).ready(function() {
 	$(".signin").click(function(e) {
-		e.preventDefault();
-		$("fieldset#signin_menu").slideToggle();
+    	e.preventDefault();
+		$("fieldset#signin_menu").toggle();
 		$(".signin").toggleClass("menu-open");
 	});
 	$("fieldset#signin_menu").mouseup(function() {
 		return false
 	});
 	$(document).mouseup(function(e) {
-		if($(e.target).parent("a.signin").length == 0) {
+		if($(e.target).parent("a.signin").length==0) {
 			$(".signin").removeClass("menu-open");
 			$("fieldset#signin_menu").hide();
 		}
-	});
+	});            
+});
 
-	$(".username").click(function(e) {
+$(document).ready(function(){
+	$(".username").click(function(e){
 		e.preventDefault();
 		$("#userMenu").toggle();
 		$(".username").toggleClass("menu-open");
@@ -22,10 +24,10 @@ $(document).ready(function() {
 	$("#userMenu").mouseup(function() {
 		return false
 	});
-	$(document).mouseup(function(e) {
-		if($(e.target).parent("a.username").length == 0) {
+	$(document).mouseup(function(e){
+		if($(e.target).parent("a.username").length==0){
 			$(".username").removeClass("menu-open");
-			$("userMenu").hide();
+			$("#userMenu").hide();
 		}
 	});
 });

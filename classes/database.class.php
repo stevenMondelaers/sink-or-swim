@@ -9,7 +9,7 @@ class Database {
     private $m_sHost = "localhost";
     private $m_sUser = "root";
     private $m_sPassword = "";
-    private $m_sDatabase = "php_project";
+    private $m_sDatabase = "p99_project";
     public $link = null;
 
     function __construct() {
@@ -28,44 +28,41 @@ class Database {
         if ($result -> num_rows == 1) {
             return $result -> fetch_row();
         } else {
-        	throw new Exception("Please check your email address and/or password", 1);
-
+            throw new Exception("Faulty login credentials", 1);
         }
     }
 
-    public function registerUser($name, $firstName, $email, $password, $birthDate, $licenseNumber) {
+    public function registerUser($name, $firstName, $sex, $email, $password, $birthDate, $licenseNumber) {
 
         $name = $this -> link -> real_escape_string($name);
         $firstName = $this -> link -> real_escape_string($firstName);
+        $sex = $this -> link -> real_escape_string($sex);
         $email = $this -> link -> real_escape_string($email);
         $password = md5($password);
         $birthDate = $this -> link -> real_escape_string($birthDate);
         $licenseNumber = $this -> link -> real_escape_string($licenseNumber);
 
-        $sql = "INSERT INTO zwemmer (Naam, Voornaam, Email, Wachtwoord, Geboortedatum, Licentienummer)
-                VALUES ('$name', '$firstName', '$email', '$password', '$birthDate', '$licenseNumber');";
+        $sql = "INSERT INTO zwemmer (Naam, Voornaam, Geslacht, Email, Wachtwoord, Geboortedatum, Licentienummer)
+                VALUES ('$name', '$firstName', '$sex', '$email', '$password', '$birthDate', '$licenseNumber');";
 
         $this -> link -> query($sql);
     }
 
-    public function selectPersonalRankings($id, $afstand) {
-        $afstand = $afstand;
-
+    public function selectPersonalRankings($id) {
         $sql = "SELECT Tijd, wedstrijd.`Datum`, wedstrijd.`Plaats`, `ZwemmerID`
                 FROM resultaat
                 LEFT JOIN wedstrijd
                 ON resultaat.`WedstrijdID` = wedstrijd.`WedstrijdID`
-                WHERE `ZwemmerID` = " . $id . " AND `AfstandID` = " . $this -> link -> real_escape_string($afstand) . "
+                WHERE `ZwemmerID` = " . $id."
                 ORDER BY tijd ASC";
 
         return $this -> link -> query($sql);
     }
 	
-	public function selectDistances() {
-        $sql = "SELECT * FROM afstand";
-
-        return $this -> link -> query($sql);
-    }
+	public function getAllSwimmer(){
+		$sql = "SELECT * FROM zwemmer order by 2";
+		return $this -> link -> query($sql);
+	}
 
 }
 ?>

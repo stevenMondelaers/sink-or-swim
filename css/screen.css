@@ -1,9 +1,4 @@
-header {
-	border-top: 5px solid #444;
-	border-bottom: 1px solid #CCCCCC;
-	padding-bottom: 30px;
-	height: 95px;
-}
+/* ---------------------------------------------------------Wrapper----------------------------------------------------------------- */
 
 .wrapper {
 	width: 950px;
@@ -16,30 +11,15 @@ header {
 	clear: both;
 }
 
+/* ---------------------------------------------------------Header------------------------------------------------------------------ */
 
-
-
-#userMenu {
-	display: none;
-	padding-top: 20px;
+header {
+	border-top: 5px solid #444;
+	border-bottom: 1px solid #CCCCCC;
+	padding-bottom: 30px;
+	height: 95px;
 }
 
-#userMenu a {
-	text-align: left;
-	padding-left: 10px;
-	display: block;
-	margin-bottom: 5px;
-}
-
-
-#user a {
-	color: #fff;
-}
-
-
-#userNav {
-	display: none;
-}
 
 .logo {
 	display: inline-block;
@@ -48,6 +28,8 @@ header {
 	margin-top: 43px;
 	height: auto;
 }
+
+/* ---------------------------------------------------------Main Navigation--------------------------------------------------------- */
 
 header nav {
 	display: inline-block;
@@ -78,6 +60,8 @@ header nav > ul > li > a {
 	background-color: #567eb9;
 }
 
+/* ---------------------------------------------------------Page not found---------------------------------------------------------- */
+
 .pageNotFoundError {
 	width: 340px;
 	margin-left: auto;
@@ -87,6 +71,8 @@ header nav > ul > li > a {
 .pageNotFoundError {
 	text-align: center;
 }
+
+/* ---------------------------------------------------------Fieldsets--------------------------------------------------------------- */
 
 fieldset {
 	display: inline-block;
@@ -105,77 +91,11 @@ fieldset > span, fieldset > input {
 	display: block;
 }
 
-#feedbackContainer {
-	padding-top: 5px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-}
-
-#feedback {
-	margin-left: auto;
-	margin-right: auto;
-	width: 200px;
-	text-align: center;
-	background-color: #444;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	width: 200px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-size: 15px;
-	color: #FFF;
-}
-
-.times {
-	display: inline-block;
-	width: 320px;
-}
-
-.times tr td {
-	width: 100px;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;
-}
-
-.times tr td:last-child {
-	width: 13px;
-	margin-top: 5px;
-}
-
-.bronze {
-	background: url('../img/achievements/bronze.png');
-	background-repeat: no-repeat;
-}
-
-.times tr:nth-child(even) {
-	background-color: #e7e9e8;
-}
-
-.achievement {
-	width: 13px;
-	height: 13px;
-}
-
-.timesHeading {
-	width: 320px;
-}
-
-.timesHeading a {
-	float: right;
-}
-
-li {
-	list-style: none;
-}
-
-
-
-
 /* -------------------------------------------------------Login Box----------------------------------------------------------------- */
+
+#user a {
+	color: #fff;
+}
 
 #topnav {
     font-size:13px;
@@ -271,6 +191,12 @@ a.signin.menu-open span {
 	padding-left: 2px;
 	font-size: 13px;
 	font-weight: normal;
+	text-align: left;
+}
+
+#userMenu {
+	display: none;
+	padding-top: 20px;
 }
 
 .username span{
@@ -366,4 +292,108 @@ a.username.menu-open span {
 	color: #444;
 	font-weight: bold;
 	margin-bottom: -10px;
+}
+
+/* -------------------------------------------------------Table--------------------------------------------------------------------- */
+#zwemmers{
+	margin-top: 20px;
+}
+
+#zwemmers td{
+	width: 200px;
+}
+
+#zwemmers tr{
+	height: 20px;
+}
+
+#zwemmers th{
+	text-align: left;
+	font-size: 14px;
+	border-bottom: 1px solid #444;
+}
+
+#zwemmers th img{
+	margin-right: 15px;
+}
+
+#zwemmers tr:nth-child(even){
+	background-color: #e8e8e8;
+}
+
+#zwemmers #medal{
+	width: 100px;
+}
+
+#zwemmers a{
+	color: #567CB9;
+}
+
+/* -------------------------------------------------------Undefined----------------------------------------------------------------- */
+
+#feedbackContainer {
+	padding-top: 5px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+#feedback {
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+	text-align: center;
+	background-color: #444;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	width: 200px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 15px;
+	color: #FFF;
+}
+
+.times {
+	display: inline-block;
+	width: 320px;
+}
+
+.times tr td {
+	width: 100px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+
+.times tr td:last-child {
+	width: 13px;
+	margin-top: 5px;
+}
+
+.bronze {
+	background: url('../img/achievements/bronze.png');
+	background-repeat: no-repeat;
+}
+
+.times tr:nth-child(even) {
+	background-color: #e7e9e8;
+}
+
+.achievement {
+	width: 13px;
+	height: 13px;
+}
+
+.timesHeading {
+	width: 320px;
+}
+
+.timesHeading a {
+	float: right;
+}
+
+li {
+	list-style: none;
 }

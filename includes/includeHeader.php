@@ -35,7 +35,7 @@ if(!empty($feedback)){
       			<p>
         			<label for="password">Password</label>
         			<input id="password" name="password" value="" title="password" tabindex="5" type="password">
-        			<a id="register" href="register">No account? Register!</a>
+        			<a id="register" href="index">No account? Register!</a>
       			</p>
       			<p>    
       				  				
@@ -45,11 +45,10 @@ if(!empty($feedback)){
   			</fieldset>
 
 			<?php
-            }else {
+            	}else {
 			?>
-			<div id="ProfileNav" class="topnav">
-			<a href="#" id="lnkUser" class="username"><span><?php echo $_SESSION['userFirstName']." ".$_SESSION['userName']
-			?></span></a>
+			<div class="topnav">
+				<a href="#" id="lnkUser" class="username"><span><?php echo $_SESSION['userFirstName']." ".$_SESSION['userName'] ?></span></a>
 			</div>
 			<div id="userMenu">
 			    <a href="profile">Profile</a>
