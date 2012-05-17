@@ -81,6 +81,16 @@ class Database {
 		$sql = "SELECT * FROM wedstrijd order by 4 DESC";
 		return $this -> link -> query($sql);
 	}
+	
+	public function registerTime($competition, $distance, $timeFull, $reactionFull){
+		$competition = $this -> link -> real_escape_string($competition);
+		$distance = $this -> link -> real_escape_string($distance);
+		
+		$sql = "INSERT INTO resultaat (AfstandID, Tijd, WedstrijdID, ZwemmerID, ReactionTime)";
+		$sql.= "VALUES('$distance', '$timeFull', '$competition', '$_SESSION[userId]', '$reactionFull')";
+		
+		$this -> link -> query($sql);
+	}
 
 }
 ?>
