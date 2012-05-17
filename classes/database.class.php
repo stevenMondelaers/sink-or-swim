@@ -8,7 +8,7 @@ class Database {
 
 	private $m_sHost = "localhost";
 	private $m_sUser = "root";
-	private $m_sPassword = "root";
+	private $m_sPassword = "";
 	private $m_sDatabase = "p99_project";
 	public $link = null;
 
@@ -21,7 +21,7 @@ class Database {
 		$password = md5($this -> link -> real_escape_string($p_sPassword));
 
 		$sql = "SELECT * FROM zwemmer
-WHERE email = '$email' AND Wachtwoord = '$password';";
+				WHERE email = '$email' AND Wachtwoord = '$password';";
 
 		$result = $this -> link -> query($sql);
 
@@ -43,18 +43,18 @@ WHERE email = '$email' AND Wachtwoord = '$password';";
 		$licenseNumber = $this -> link -> real_escape_string($licenseNumber);
 
 		$sql = "INSERT INTO zwemmer (Naam, Voornaam, Geslacht, Email, Wachtwoord, Geboortedatum, Licentienummer)
-VALUES ('$name', '$firstName', '$sex', '$email', '$password', '$birthDate', '$licenseNumber');";
+				VALUES ('$name', '$firstName', '$sex', '$email', '$password', '$birthDate', '$licenseNumber');";
 
 		$this -> link -> query($sql);
 	}
 
 	public function selectPersonalRankings($id, $aId, $bId) {
 		$sql = "SELECT Tijd, wedstrijd.`Datum`, wedstrijd.`Plaats`, `ZwemmerID`
-FROM resultaat
-LEFT JOIN wedstrijd
-ON resultaat.`WedstrijdID` = wedstrijd.`WedstrijdID`
-WHERE `ZwemmerID` = " . $id . " AND AfstandID = " . $aId . " AND wedstrijd.BadlengteID = " . $bId . "
-ORDER BY tijd ASC";
+				FROM resultaat
+				LEFT JOIN wedstrijd
+				ON resultaat.`WedstrijdID` = wedstrijd.`WedstrijdID`
+				WHERE `ZwemmerID` = " . $id . " AND AfstandID = " . $aId . " AND wedstrijd.BadlengteID = " . $bId . "
+				ORDER BY tijd ASC";
 
 		$result = $this -> link -> query($sql);
 
@@ -74,6 +74,11 @@ ORDER BY tijd ASC";
 	public function selectDistances() {
 		$sql = "SELECT * FROM afstand";
 
+		return $this -> link -> query($sql);
+	}
+	
+	public function selectCompetitions(){
+		$sql = "SELECT * FROM wedstrijd order by 4 DESC";
 		return $this -> link -> query($sql);
 	}
 

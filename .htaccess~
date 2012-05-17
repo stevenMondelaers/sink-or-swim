@@ -1,7 +1,0 @@
-Options +FollowSymlinks
-Options -Indexes
-RewriteEngine on
-RewriteRule
-RewriteRule ^athletes/([0-9]+)\.html$ product.php?id=$1
-RewriteRule ^([^.]+)/?$ $1.php
-ErrorDocument 404 /p00_project/404

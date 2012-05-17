@@ -219,6 +219,7 @@ a.username.menu-open span {
 	background-color:#444;
 	-moz-border-radius:10px;
     -webkit-border-radius:10px;
+    padding-left: 40px;
 }
 
 #regForm fieldset{
@@ -230,7 +231,7 @@ a.username.menu-open span {
 	font-weight: bold;
 	font-size: 20px;
 	color:#fff;
-	margin-left: 13px;
+	margin-left: -10px;
 }
 
 #regForm label{
@@ -329,7 +330,95 @@ a.username.menu-open span {
 	color: #567CB9;
 }
 
-/* -------------------------------------------------------Undefined----------------------------------------------------------------- */
+/* -------------------------------------------------------Time Registration -------------------------------------------------------- */
+/* -------------------------------------------------------Basic time --------------------------------------------------------------- */
+
+#basicTime{
+	float:left;
+	width: 400px;
+	margin-top: 10px;
+	background-color:#444;
+	-moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    padding-left: 40px;
+}
+
+#basicTime fieldset{
+	border: none;
+	margin-top: 10px;
+}
+
+#basicTime legend{
+	font-weight: bold;
+	font-size: 20px;
+	color:#fff;
+	margin-left: -10px;
+}
+
+#basicTime label{
+	font-size: 11px;
+	color:#fff;
+	width: 120px;
+	display: block;
+	float: left;
+	line-height: 27px;
+	margin-left:-5px;
+}
+
+.tijd{
+	width: 61px;
+}
+
+/* ------------------------------------------------------- Split Times ------------------------------------------------------------- */
+
+#splitTime{
+	float:right;
+	width: 400px;
+	margin-top: 10px;
+	background-color:#444;
+	-moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    padding-left: 40px;
+
+}
+
+#splitTime fieldset{
+	border: none;
+	margin-top: 10px;
+}
+
+#splitTime legend{
+	font-weight: bold;
+	font-size: 20px;
+	color:#fff;
+	margin-left: -10px;
+}
+
+#splitTime label{
+	font-size: 11px;
+	color:#fff;
+	width: 120px;
+	display: block;
+	float: left;
+	line-height: 27px;
+	margin-left:-5px;
+}
+
+.btn-time{
+	-moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    background:#39d url('../img/bg-btn-blue.png') repeat-x scroll 0 0;
+    border:1px solid #547cb9;
+    color:#fff;
+    text-shadow:0 -1px 0 #39d;
+    padding:4px 10px 5px;
+    font-size:11px;
+    margin:0 0px 10px 265px;
+    font-weight:bold;
+    float: right;
+}
+
+/* ------------------------------------------------------- Undefined --------------------------------------------------------------- */
 
 #feedbackContainer {
 	padding-top: 5px;

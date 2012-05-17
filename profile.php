@@ -89,7 +89,7 @@ $afstanden = $db -> selectDistances();
 						<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 							<select id="drpAfstand" name="afstand">
 								<?php
-while ($afstand = $afstanden -> fetch_array()) {
+								while ($afstand = $afstanden -> fetch_array()) {
 								?>
 								<option value="<?php echo $afstand['AfstandID']; ?>" <?php
 								if ($iAfstand == $afstand['AfstandID']) { echo "selected='selected'";
