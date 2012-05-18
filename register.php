@@ -10,7 +10,7 @@ if (!empty($_POST['email']) && !empty($_POST['name']) && !empty($_POST['firstNam
         $user -> Email = $_POST['email'];
         $user -> Name = $_POST['name'];
         $user -> FirstName = $_POST['firstName'];
-		$user -> Sex = $_POST['sex'];
+	$user -> Sex = $_POST['sex'];
         $user -> Password = $_POST['password'];
         $user -> PasswordConfirm = $_POST['passwordConfirm'];
         $user -> LicenseNumber = $_POST['licenseNumber'];
@@ -56,7 +56,7 @@ if (!empty($_POST['email']) && !empty($_POST['name']) && !empty($_POST['firstNam
 								<input type="text" name="firstName" id="firstName" />
 							</li>
 							<li>
-								<label for="sex">Sex:</label>
+								<label for="sex">Geslacht:</label>
 								<select name="sex">
 									<option value="M">Male</option>
 									<option value="F">Female</option>
