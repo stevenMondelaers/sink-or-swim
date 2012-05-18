@@ -10,11 +10,11 @@ class Time{
 	private $m_iReactionSec;
 	private $m_iReactionHun;
 	private $m_iReactionFull;
-	
+
 	private $m_iM50Min;
 	private $m_iM50Sec;
 	private $m_iM50Hun;
-	
+
 	public function __set($p_sProperty, $p_vValue){
 		switch($p_sProperty){
 			case "Competition" :
@@ -57,7 +57,7 @@ class Time{
 				break;
 		}
 	}
-	
+
 	public function __get($p_sProperty){
 		$vResult = null;
 		switch($p_sProperty) {
@@ -97,10 +97,10 @@ class Time{
             default :
                 break;
 		}
-		
+
 		return $vResult;
 	}
-	
+
 	public function timeReg(){
 		require_once 'classes/database.class.php';
 		$db = new Database();
