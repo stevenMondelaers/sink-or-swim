@@ -8,7 +8,7 @@ class Database {
 
 	private $m_sHost = "localhost";
 	private $m_sUser = "root";
-	private $m_sPassword = "root";
+	private $m_sPassword = "";
 	private $m_sDatabase = "p99_project";
 	public $link = null;
 
@@ -76,10 +76,20 @@ class Database {
 
 		return $this -> link -> query($sql);
 	}
-	
+
 	public function selectCompetitions(){
 		$sql = "SELECT * FROM wedstrijd order by 4 DESC";
 		return $this -> link -> query($sql);
+	}
+
+	public function registerTime($competition, $distance, $timeFull, $reactionFull){
+		$competition = $this -> link -> real_escape_string($competition);
+		$distance = $this -> link -> real_escape_string($distance);
+
+		$sql = "INSERT INTO resultaat (AfstandID, Tijd, WedstrijdID, ZwemmerID, ReactionTime)";
+		$sql.= "VALUES('$distance', '$timeFull', '$competition', '$_SESSION[userId]', '$reactionFull')";
+
+		$this -> link -> query($sql);
 	}
 
 }
