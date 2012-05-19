@@ -82,15 +82,15 @@ class Database {
 		return $this -> link -> query($sql);
 	}
 
-	public function registerTime($competition, $distance, $timeFull, $reactionFull){
+	public function registerTime($competition, $distance, $timeFull, $reactionFull, $m50Full, $m100Full, $m200Full, $m400Full, $m800Full, $m1500Full){
 		$competition = $this -> link -> real_escape_string($competition);
 		$distance = $this -> link -> real_escape_string($distance);
-
-		$sql = "INSERT INTO resultaat (AfstandID, Tijd, WedstrijdID, ZwemmerID, ReactionTime)";
-		$sql.= "VALUES('$distance', '$timeFull', '$competition', '$_SESSION[userId]', '$reactionFull')";
-
+		
+		$sql = "INSERT INTO resultaat (AfstandID, Tijd, WedstrijdID, ZwemmerID, ReactionTime, M50, M100, M200, M400, M800, M1500)";
+		$sql.= "VALUES('$distance', '$timeFull', '$competition', '$_SESSION[userId]', '$reactionFull', '$m50Full', '$m100Full', '$m200Full', '$m400Full', '$m800Full', '$m1500Full')";
 		$this -> link -> query($sql);
 	}
+	
 
 }
 ?>

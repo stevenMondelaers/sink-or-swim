@@ -11,12 +11,12 @@ if (!empty($_POST['competition']) && !empty($_POST['distance']) && !empty($_POST
         $time -> Distance = $_POST['distance'];
 		$time -> TimeFull = (($_POST['tijdHun']) + (100*$_POST['tijdSec']) + ((60*$_POST['tijdMin'])*100));
 		$time -> ReactionFull = (($_POST['reactionHun']) + (100*$_POST['reactionSec']));
-		$time -> Time50 = (($_POST['tijd50Hun']) + (100*$_POST['tijd50Sec']) + ((60*$_POST['tijd50Min'])*100));
-		$time -> Time100 = (($_POST['tijd100Hun']) + (100*$_POST['tijd100Sec']) + ((60*$_POST['tijd100Min'])*100));
-		$time -> Time200 = (($_POST['tijd200Hun']) + (100*$_POST['tijd200Sec']) + ((60*$_POST['tijd200Min'])*100));
-		$time -> Time400 = (($_POST['tijd400Hun']) + (100*$_POST['tijd400Sec']) + ((60*$_POST['tijd400Min'])*100));
-		$time -> Time800 = (($_POST['tijd800Hun']) + (100*$_POST['tijd800Sec']) + ((60*$_POST['tijd800Min'])*100));
-		$time -> Time1500 = (($_POST['tijd1500Hun']) + (100*$_POST['tijd1500Sec']) + ((60*$_POST['tijd1500Min'])*100));
+		$time -> M50Full = (($_POST['tijd50Hun']) + (100*$_POST['tijd50Sec']) + ((60*$_POST['tijd50Min'])*100));
+		$time -> M100Full = (($_POST['tijd100Hun']) + (100*$_POST['tijd100Sec']) + ((60*$_POST['tijd100Min'])*100));
+		$time -> M200Full = (($_POST['tijd200Hun']) + (100*$_POST['tijd200Sec']) + ((60*$_POST['tijd200Min'])*100));
+		$time -> M400Full = (($_POST['tijd400Hun']) + (100*$_POST['tijd400Sec']) + ((60*$_POST['tijd400Min'])*100));
+		$time -> M800Full = (($_POST['tijd800Hun']) + (100*$_POST['tijd800Sec']) + ((60*$_POST['tijd800Min'])*100));
+		$time -> M1500Full = (($_POST['tijd1500Hun']) + (100*$_POST['tijd1500Sec']) + ((60*$_POST['tijd1500Min'])*100));
 
         $time -> timeReg();
         $feedback = "Success";
