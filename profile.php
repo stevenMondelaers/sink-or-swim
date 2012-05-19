@@ -152,6 +152,12 @@ $afstanden = $db -> selectDistances();
 										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
 										$timeFormat.= ".";
 										$timeFormat.= substr($ranking['Tijd'], -2);
+									} else {
+										$timeFormat = (substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))); 
+										$timeFormat.= ":"; 
+										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
+										$timeFormat.= ".";
+										$timeFormat.= substr($ranking['Tijd'], -2);
 									}
 									echo $timeFormat;
 								?>
@@ -209,6 +215,12 @@ $afstanden = $db -> selectDistances();
 									} else if((((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60)<10){
 										$timeFormat = (substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))); 
 										$timeFormat.= "0";
+										$timeFormat.= ":"; 
+										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
+										$timeFormat.= ".";
+										$timeFormat.= substr($ranking['Tijd'], -2);
+									} else {
+										$timeFormat = (substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))); 
 										$timeFormat.= ":"; 
 										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
 										$timeFormat.= ".";
