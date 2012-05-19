@@ -106,6 +106,7 @@ class Time{
 		$db = new Database();
 		$db -> registerTime($this->m_sCompetition, $this->m_sDistance, $this->m_iTimeFull, $this->m_iReactionFull);
 	}
+	
 
 }
 

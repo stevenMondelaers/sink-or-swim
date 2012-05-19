@@ -76,14 +76,18 @@ $afstanden = $db -> selectDistances();
 			<section class="wrapper">
 				<ul>
 					<li>
+						<h2>
 						<?php
 						echo $_SESSION['userFirstName'] . " " . $_SESSION['userName'];
 						?>
+						</h2>
 					</li>
 					<li>
+						<h4>
 						<?php
 						echo $_SESSION['userBirthDate'];
 						?>
+						</h4>
 					</li>
 					<li>
 						<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -111,16 +115,50 @@ $afstanden = $db -> selectDistances();
 							Short course 25m
 						</h4>
 						<table class="times">
-							
 							<?php
-if($rankings1){
-while($ranking = $rankings1->fetch_array()){
+								if($rankings1){
+							?>
+									<tr>
+										<th>Time</th>
+										<th>Date</th>
+										<th>Place</th>
+										<th></th>
+									</tr>
+							<?php
+								while($ranking = $rankings1->fetch_array()){
 							?>
 							<tr>
-								<td><a href="#"><?php echo $ranking['Tijd']; ?></a></td>
+								<td><a href="#">
+								<?php 
+									if((substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.')))<10 && (((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60)<10){
+										$timeFormat = "0";
+										$timeFormat.= (substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))); 
+										$timeFormat.= ":"; 
+										$timeFormat.= "0";
+										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
+										$timeFormat.= ".";
+										$timeFormat.= substr($ranking['Tijd'], -2);
+									} else if((substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.')))<10) {
+										$timeFormat = "0";
+										$timeFormat.= (substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))); 
+										$timeFormat.= ":"; 
+										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
+										$timeFormat.= ".";
+										$timeFormat.= substr($ranking['Tijd'], -2);
+									} else if((((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60)<10){
+										$timeFormat = (substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))); 
+										$timeFormat.= "0";
+										$timeFormat.= ":"; 
+										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
+										$timeFormat.= ".";
+										$timeFormat.= substr($ranking['Tijd'], -2);
+									}
+									echo $timeFormat;
+								?>
+								</a></td>								
 								<td><?php echo $ranking['Datum']; ?></td>
 								<td><?php echo $ranking['Plaats']; ?></td>
-								<td></td>
+								<td class="medal"></td>
 							</tr>
 							<?php
 							}
@@ -134,19 +172,54 @@ while($ranking = $rankings1->fetch_array()){
 					<div class="right">
 						
 						<h4>
-							Short course 50m
+							Long Course 50m
 						</h4>
 
 						<table class="times">
 							<?php
-if($rankings2){
-while($ranking = $rankings2->fetch_array()){
+							if($rankings2){
+							?>
+								<tr>
+									<th>Time</th>
+									<th>Date</th>
+									<th>Place</th>
+									<th></th>
+								</tr>
+							<?php
+							while($ranking = $rankings2->fetch_array()){
 							?>
 							<tr>
-								<td><a href="#"><?php echo $ranking['Tijd']; ?></a></td>
+								<td><a href="#">
+								<?php 
+									if((substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.')))<10 && (((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60)<10){
+										$timeFormat = "0";
+										$timeFormat.= (substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))); 
+										$timeFormat.= ":"; 
+										$timeFormat.= "0";
+										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
+										$timeFormat.= ".";
+										$timeFormat.= substr($ranking['Tijd'], -2);
+									} else if((substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.')))<10) {
+										$timeFormat = "0";
+										$timeFormat.= (substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))); 
+										$timeFormat.= ":"; 
+										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
+										$timeFormat.= ".";
+										$timeFormat.= substr($ranking['Tijd'], -2);
+									} else if((((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60)<10){
+										$timeFormat = (substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))); 
+										$timeFormat.= "0";
+										$timeFormat.= ":"; 
+										$timeFormat.= ((($ranking['Tijd']-substr($ranking['Tijd'], -2))/100/60)-(substr($ranking['Tijd']/100/60,0, strrpos($ranking['Tijd']/100/60, '.'))))*60;
+										$timeFormat.= ".";
+										$timeFormat.= substr($ranking['Tijd'], -2);
+									}
+									echo $timeFormat;
+								?>
+								</a></td>
 								<td><?php echo $ranking['Datum']; ?></td>
 								<td><?php echo $ranking['Plaats']; ?></td>
-								<td></td>
+								<td class="medal"></td>
 							</tr>
 							<?php
 							}

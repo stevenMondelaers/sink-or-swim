@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!empty($_POST['competition'])) {
+if (!empty($_POST['competition']) && !empty($_POST['distance']) && !empty($_POST['tijdHun'])) {
     require_once 'classes/time.class.php';
 
     try {

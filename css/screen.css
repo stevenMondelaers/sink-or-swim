@@ -330,6 +330,32 @@ a.username.menu-open span {
 	color: #567CB9;
 }
 
+.times{
+	margin-top: 10px;
+}
+
+.times td{
+	width: 250px;
+}
+
+.times tr{
+	height: 20px;
+}
+
+.times th{
+	text-align: left;
+	font-size: 14px;
+	border-bottom: 1px solid #444;
+}
+
+.times tr:nth-child(even){
+	background-color: #e8e8e8;
+}
+
+.times a{
+	color: #567CB9;
+}
+
 /* -------------------------------------------------------Time Registration -------------------------------------------------------- */
 /* -------------------------------------------------------Basic time --------------------------------------------------------------- */
 
@@ -420,6 +446,10 @@ a.username.menu-open span {
 
 /* ------------------------------------------------------- Undefined --------------------------------------------------------------- */
 
+#drpAfstand{
+	margin-top: 20px;
+}
+
 #feedbackContainer {
 	padding-top: 5px;
 	position: absolute;
@@ -443,44 +473,16 @@ a.username.menu-open span {
 	color: #FFF;
 }
 
-.times {
-	display: inline-block;
-	width: 320px;
-}
 
-.times tr td {
-	width: 100px;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;
-}
-
-.times tr td:last-child {
-	width: 13px;
-	margin-top: 5px;
-}
 
 .bronze {
 	background: url('../img/achievements/bronze.png');
 	background-repeat: no-repeat;
 }
 
-.times tr:nth-child(even) {
-	background-color: #e7e9e8;
-}
-
 .achievement {
 	width: 13px;
 	height: 13px;
-}
-
-.timesHeading {
-	width: 320px;
-}
-
-.timesHeading a {
-	float: right;
 }
 
 li {
