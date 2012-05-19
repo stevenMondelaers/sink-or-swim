@@ -91,6 +91,19 @@ class Database {
 		$this -> link -> query($sql);
 	}
 	
+	public function selectRecords(){
+		$sql = "SELECT DISTINCT resultaat.AfstandID, zwemmer.Naam, zwemmer.Voornaam, afstand.Omschrijving, MIN(TIJD) as Tijd, wedstrijd.Datum, wedstrijd.Plaats, wedstrijd.Naam as competition
+				FROM resultaat INNER JOIN afstand 
+				ON resultaat.AfstandID = afstand.AfstandID
+				INNER JOIN zwemmer
+				ON zwemmer.ZwemmerID = resultaat.ZwemmerID
+				INNER JOIN wedstrijd
+				ON wedstrijd.WedstrijdID = resultaat.WedstrijdID
+				GROUP BY AfstandID
+				ORDER BY 1";
+			return $this -> link -> query($sql);
+	}
+	
 
 }
 ?>
