@@ -2,7 +2,6 @@ Options +FollowSymlinks
 Options -Indexes
 RewriteEngine on
 
-ErrorDocument 404 /p00_project/404
-
 RewriteRule ^profile/([0-9]+)$ profile.php?id=$1
 RewriteRule ^([^.]+)/?$ $1.php
+ErrorDocument 404 /p00_project/404

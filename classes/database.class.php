@@ -8,7 +8,7 @@ class Database {
 
 	private $m_sHost = "localhost";
 	private $m_sUser = "root";
-	private $m_sPassword = "";
+	private $m_sPassword = "root";
 	private $m_sDatabase = "p99_project";
 	public $link = null;
 
@@ -77,21 +77,21 @@ class Database {
 		return $this -> link -> query($sql);
 	}
 
-	public function selectCompetitions(){
+	public function selectCompetitions() {
 		$sql = "SELECT * FROM wedstrijd order by 4 DESC";
 		return $this -> link -> query($sql);
 	}
 
-	public function registerTime($competition, $distance, $timeFull, $reactionFull, $m50Full, $m100Full, $m200Full, $m400Full, $m800Full, $m1500Full){
+	public function registerTime($competition, $distance, $timeFull, $reactionFull, $m50Full, $m100Full, $m200Full, $m400Full, $m800Full, $m1500Full) {
 		$competition = $this -> link -> real_escape_string($competition);
 		$distance = $this -> link -> real_escape_string($distance);
-		
+
 		$sql = "INSERT INTO resultaat (AfstandID, Tijd, WedstrijdID, ZwemmerID, ReactionTime, M50, M100, M200, M400, M800, M1500)";
-		$sql.= "VALUES('$distance', '$timeFull', '$competition', '$_SESSION[userId]', '$reactionFull', '$m50Full', '$m100Full', '$m200Full', '$m400Full', '$m800Full', '$m1500Full')";
+		$sql .= "VALUES('$distance', '$timeFull', '$competition', '$_SESSION[userId]', '$reactionFull', '$m50Full', '$m100Full', '$m200Full', '$m400Full', '$m800Full', '$m1500Full')";
 		$this -> link -> query($sql);
 	}
-	
-	public function selectRecords(){
+
+	public function selectRecords() {
 		$sql = "SELECT DISTINCT resultaat.AfstandID, zwemmer.Naam, zwemmer.Voornaam, afstand.Omschrijving, MIN(TIJD) as Tijd, wedstrijd.Datum, wedstrijd.Plaats, wedstrijd.Naam as competition
 				FROM resultaat INNER JOIN afstand 
 				ON resultaat.AfstandID = afstand.AfstandID
@@ -101,9 +101,17 @@ class Database {
 				ON wedstrijd.WedstrijdID = resultaat.WedstrijdID
 				GROUP BY AfstandID
 				ORDER BY 1";
-			return $this -> link -> query($sql);
+		return $this -> link -> query($sql);
 	}
-	
+
+	public function getUserData($p_iId) {
+		$id = $this -> link -> real_escape_string($p_iId);
+
+		$sql = "SELECT Naam, Voornaam, Geboortedatum FROM zwemmer
+				WHERE ZwemmerID = $id";
+				
+		return $this -> link -> query($sql);
+	}
 
 }
 ?>

@@ -17,6 +17,10 @@ class User {
     private $m_sPassword;
     private $m_sPasswordConfirm;
 
+	function __construct() {
+		require_once('database.class.php');
+	}
+
     public function __set($p_sProperty, $p_vValue) {
         switch($p_sProperty) {
             case "Id" :
@@ -114,6 +118,19 @@ class User {
         
         $db = new Database();
         $db -> registerUser($this->m_sName, $this->m_sFirstName, $this->m_sSex, $this->m_sEmail, $this->m_sPassword, $this->m_dBirthdate, $this->m_sLicenseNumber);
+	}
+	
+	public function getUserData($p_iId){
+		$db = new Database();
+		
+		$result = $db->getUserData($p_iId);
+		
+		if($result -> num_rows == 1){
+			return $result;
+		}else {
+			throw new Exception("Profiel niet gevonden");
+		}
+		
 	}
 	
 }
