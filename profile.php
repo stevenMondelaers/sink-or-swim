@@ -106,9 +106,7 @@ while ($userA = $userData -> fetch_array()){
 						}
 						}
 						?>
-
-						<!-- Tot hier -->
-
+						
 						<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 							<input type="hidden" id="profileId" name="profileId" value="<?php echo $profileId; ?>" />
 							<select id="drpAfstand" name="afstand">
