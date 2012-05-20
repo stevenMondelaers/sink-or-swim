@@ -54,7 +54,7 @@ $Records = $o_Record->selectRecords();
 						{
 							$listRec = "<tr>";
 							$listRec.=		"<td id='omschrijving'>".$n['Omschrijving']."</td>";
-							$listRec.=		"<td id='zwemmerNaam'><a href='#'>".$n['Naam'].", ".$n['Voornaam']."</a></td>";
+							$listRec.=		"<td id='zwemmerNaam'><a href='profile?profileId=".$n['ZwemmerID']."'>".$n['Naam'].", ".$n['Voornaam']."</a></td>";
 							$listRec.=		"<td id='zwemmerTijd'>".$n['Tijd']."</td>";
 							$listRec.=		"<td id='zwemmerDatum'>".$n['Datum']."</td>";
 							$listRec.=		"<td id='zwemmerPlaats'>".$n['Plaats']."</td>";

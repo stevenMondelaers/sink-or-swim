@@ -8,7 +8,7 @@ class Database {
 
 	private $m_sHost = "localhost";
 	private $m_sUser = "root";
-	private $m_sPassword = "root";
+	private $m_sPassword = "";
 	private $m_sDatabase = "p99_project";
 	public $link = null;
 
@@ -92,7 +92,7 @@ class Database {
 	}
 
 	public function selectRecords() {
-		$sql = "SELECT DISTINCT resultaat.AfstandID, zwemmer.Naam, zwemmer.Voornaam, afstand.Omschrijving, MIN(TIJD) as Tijd, wedstrijd.Datum, wedstrijd.Plaats, wedstrijd.Naam as competition
+		$sql = "SELECT DISTINCT resultaat.AfstandID, zwemmer.Naam, zwemmer.ZwemmerID, zwemmer.Voornaam, afstand.Omschrijving, MIN(TIJD) as Tijd, wedstrijd.Datum, wedstrijd.Plaats, wedstrijd.Naam as competition
 				FROM resultaat INNER JOIN afstand 
 				ON resultaat.AfstandID = afstand.AfstandID
 				INNER JOIN zwemmer
