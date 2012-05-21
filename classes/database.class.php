@@ -8,7 +8,7 @@ class Database {
 
 	private $m_sHost = "localhost";
 	private $m_sUser = "root";
-	private $m_sPassword = "";
+	private $m_sPassword = "root";
 	private $m_sDatabase = "p99_project";
 	public $link = null;
 
@@ -16,12 +16,14 @@ class Database {
 		$this -> link = new mysqli($this -> m_sHost, $this -> m_sUser, $this -> m_sPassword, $this -> m_sDatabase);
 	}
 
+	//User functies
+
 	public function selectUserLogin($p_sEmail, $p_sPassword) {
 		$email = $this -> link -> real_escape_string($p_sEmail);
 		$password = md5($this -> link -> real_escape_string($p_sPassword));
 
 		$sql = "SELECT * FROM zwemmer
-				WHERE email = '$email' AND Wachtwoord = '$password';";
+WHERE email = '$email' AND Wachtwoord = '$password';";
 
 		$result = $this -> link -> query($sql);
 
@@ -43,27 +45,9 @@ class Database {
 		$licenseNumber = $this -> link -> real_escape_string($licenseNumber);
 
 		$sql = "INSERT INTO zwemmer (Naam, Voornaam, Geslacht, Email, Wachtwoord, Geboortedatum, Licentienummer)
-				VALUES ('$name', '$firstName', '$sex', '$email', '$password', '$birthDate', '$licenseNumber');";
+VALUES ('$name', '$firstName', '$sex', '$email', '$password', '$birthDate', '$licenseNumber');";
 
 		$this -> link -> query($sql);
-	}
-
-	public function selectPersonalRankings($id, $aId, $bId) {
-		$sql = "SELECT Tijd, wedstrijd.`Datum`, wedstrijd.`Plaats`, `ZwemmerID`
-				FROM resultaat
-				LEFT JOIN wedstrijd
-				ON resultaat.`WedstrijdID` = wedstrijd.`WedstrijdID`
-				WHERE `ZwemmerID` = " . $id . " AND AfstandID = " . $aId . " AND wedstrijd.BadlengteID = " . $bId . "
-				ORDER BY tijd ASC";
-
-		$result = $this -> link -> query($sql);
-
-		if ($result && $result -> num_rows > 0) {
-			return $result;
-		} else {
-			throw new Exception("Geen resultaten gevonden");
-
-		}
 	}
 
 	public function getAllSwimmer() {
@@ -91,26 +75,59 @@ class Database {
 		$this -> link -> query($sql);
 	}
 
-	public function selectRecords() {
-		$sql = "SELECT DISTINCT resultaat.AfstandID, zwemmer.Naam, zwemmer.ZwemmerID, zwemmer.Voornaam, afstand.Omschrijving, MIN(TIJD) as Tijd, wedstrijd.Datum, wedstrijd.Plaats, wedstrijd.Naam as competition
-				FROM resultaat INNER JOIN afstand 
-				ON resultaat.AfstandID = afstand.AfstandID
-				INNER JOIN zwemmer
-				ON zwemmer.ZwemmerID = resultaat.ZwemmerID
-				INNER JOIN wedstrijd
-				ON wedstrijd.WedstrijdID = resultaat.WedstrijdID
-				GROUP BY AfstandID
-				ORDER BY 1";
-		return $this -> link -> query($sql);
+	public function selectRecords($p_iAfstandId, $p_sGender) {
+
+		if ($p_sGender == "M" || $p_sGender == "F") {
+			
+			$gender = $this -> link -> real_escape_string($p_sGender);
+			$afstandId = $this -> link -> real_escape_string($p_iAfstandId);
+
+			$sql = "SELECT DISTINCT resultaat.AfstandID, zwemmer.Naam, zwemmer.ZwemmerID, zwemmer.Voornaam, afstand.Omschrijving, MIN(TIJD) as Tijd, wedstrijd.Datum, wedstrijd.Plaats, wedstrijd.Naam as competition
+FROM resultaat INNER JOIN afstand
+ON resultaat.AfstandID = afstand.AfstandID
+INNER JOIN zwemmer
+ON zwemmer.ZwemmerID = resultaat.ZwemmerID
+INNER JOIN wedstrijd
+ON wedstrijd.WedstrijdID = resultaat.WedstrijdID
+WHERE wedstrijd.BadlengteID = $afstandId AND zwemmer.Geslacht = '$gender'
+GROUP BY AfstandID
+ORDER BY 1";
+
+			return $this -> link -> query($sql);
+
+		} else {
+			throw new Exception("Bad value in gender field");
+		}
+
 	}
 
 	public function getUserData($p_iId) {
 		$id = $this -> link -> real_escape_string($p_iId);
 
 		$sql = "SELECT Naam, Voornaam, Geboortedatum FROM zwemmer
-				WHERE ZwemmerID = $id";
-				
+WHERE ZwemmerID = $id";
+
 		return $this -> link -> query($sql);
+	}
+
+	//Rankings/records functies
+
+	public function selectPersonalRankings($id, $aId, $bId) {
+		$sql = "SELECT Tijd, wedstrijd.`Datum`, wedstrijd.`Plaats`, `ZwemmerID`
+FROM resultaat
+LEFT JOIN wedstrijd
+ON resultaat.`WedstrijdID` = wedstrijd.`WedstrijdID`
+WHERE `ZwemmerID` = " . $id . " AND AfstandID = " . $aId . " AND wedstrijd.BadlengteID = " . $bId . "
+ORDER BY tijd ASC";
+
+		$result = $this -> link -> query($sql);
+
+		if ($result && $result -> num_rows > 0) {
+			return $result;
+		} else {
+			throw new Exception("Geen resultaten gevonden");
+
+		}
 	}
 
 }

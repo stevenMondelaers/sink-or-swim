@@ -2,7 +2,22 @@
 session_start();
 include_once("classes/database.class.php");
 $o_Record = new Database();
-$Records = $o_Record->selectRecords();
+
+$Records = null;
+
+$gender = "M";
+$course = 1;
+if(!empty($_POST['geslacht']) && !empty($_POST['course'])){
+	$gender = $_POST['geslacht'];
+	$course = $_POST['course'];
+}
+
+try {
+	$Records = $o_Record->selectRecords($course, $gender);
+}catch(exception $e){
+	$feedback = $e->getMessage();
+}
+
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -11,6 +26,39 @@ $Records = $o_Record->selectRecords();
         include_once ('includes/includeHead.php');
 		?>
 		<title>Records | <?php echo siteName; ?></title>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				$("#btnFilter").hide();
+				
+				$("select").change(function() {
+
+					//$(this).parent().parent().parent().submit();
+					
+					var gender = $("#drpGeslacht").val();
+					var course = $("#drpCourse").val();
+
+					$.ajax({
+						type : "POST",
+						url : "ajax/filter_records.php",
+						data : {
+							gender : gender,
+							course : course
+						}
+					}).done(function(fb){
+						
+						if(fb.message = "success"){
+							$("tbody").html(fb.html);
+						}else {
+							$("#ajaxFeedback").html(fb.message);
+						}
+					});
+
+				});
+				
+			});
+		</script>
 
 	</head>
 	<body>
@@ -23,24 +71,31 @@ $Records = $o_Record->selectRecords();
 			?>
 			<section>
 				<div id="filterRec">
-					<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+					<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 						<ul>
 							<li>
-								<select id="drpGeslacht" name="geslacht">
-									<option value="M">Male</option>
-									<option value="F">Female</option>
+								<select id="drpGeslacht" name="geslacht" class="drp">
+									<option value="M" <?php if(!empty($_POST['geslacht']) && $_POST['geslacht'] == "M"){ echo "selected=selected";} ?>>Male</option>
+									<option value="F" <?php if(!empty($_POST['geslacht']) && $_POST['geslacht'] == "F"){ echo "selected=selected";} ?>>Female</option>
 								</select>
 							</li>
 							<li>
 								<select id="drpCourse" name="course">
-									<option value="1">Short Course</option>
-									<option value="2">Long Course</option>
+									<option value="1" <?php if(!empty($_POST['course']) && $_POST['course'] == 1){ echo "selected=selected";} ?>>Short Course</option>
+									<option value="2" <?php if(!empty($_POST['course']) && $_POST['course'] == 2){ echo "selected=selected";} ?>>Long Course</option>
 								</select>
+							</li>
+							<li>
+								<input type="submit" value="Filter!" id="btnFilter" class="btn-info" />
 							</li>
 						</ul>
 					</form>
+					<div id="ajaxFeedback">
+						
+					</div>
 				</div>
 				<table id="records">
+					<thead>
                 	<tr>
                 		<th>Distance</th>
                 		<th>Swimmer</th>
@@ -49,6 +104,8 @@ $Records = $o_Record->selectRecords();
                 		<th>Place</th>
                 		<th>Competition</th>
                 	</tr>
+                	</thead>
+                	<tbody>
 	                <?php
 						while($n = $Records->fetch_assoc())
 						{
@@ -63,6 +120,7 @@ $Records = $o_Record->selectRecords();
 							echo $listRec;
 						}
 					?>
+					</tbody>
 				</table>
 			</section>
 

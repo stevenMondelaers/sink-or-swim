@@ -53,6 +53,7 @@ if(!empty($feedback)){
 			<div id="userMenu">
 			    <a href="profile">Profile</a>
 			    <a href="add_times">Add times</a>
+			    <a href="add_meeting">Add meeting</a>
 			    <a href="achievements">Achievements</a>
 			    <a href="logout">Logout</a>
 			</div>

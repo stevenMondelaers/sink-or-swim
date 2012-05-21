@@ -262,9 +262,9 @@ a.username.menu-open span {
     text-shadow:0 -1px 0 #39d;
     padding:4px 10px 5px;
     font-size:11px;
-    margin:0 5px 10px 265px;
+    //margin:0 5px 10px 265px;
     font-weight:bold;
-    float: right;
+    //float: right;
 }
 
 /* -------------------------------------------------------Information--------------------------------------------------------------- */
