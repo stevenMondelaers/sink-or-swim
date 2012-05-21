@@ -113,7 +113,7 @@ WHERE ZwemmerID = $id";
 	//Rankings/records functies
 
 	public function selectPersonalRankings($id, $aId, $bId) {
-		$sql = "SELECT Tijd, wedstrijd.`Datum`, wedstrijd.`Plaats`, `ZwemmerID`
+		$sql = "SELECT ResultaatID, Tijd, wedstrijd.`Datum`, wedstrijd.`Plaats`, `ZwemmerID`
 FROM resultaat
 LEFT JOIN wedstrijd
 ON resultaat.`WedstrijdID` = wedstrijd.`WedstrijdID`
