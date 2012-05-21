@@ -34,15 +34,86 @@ try
 	           include_once('includes/includeNavigation.php');
 	        ?>
             <section>
-            	<ul>
-					<?php
+            	<h2>Result Details</h2>
+            	<table id= "splittijd">
+            		<?php
 						while($split = $splitData->fetch_array()){
-							print_r($split);
-							echo "<br />";
+							$listSplit = "<tr>";
+							$listSplit.= "<td><h4>".$split['Naam']. "," . $split['Voornaam'] . "</h4></td>";
+							$listSplit.= "<td></td>";
+							$listSplit.= "<td></td>";
+							$listSplit.= "</tr>";
+							$listSplit.= "<tr>";
+							$listSplit.= "<td>" . $split['Geboortedatum'] . "</td>";
+							$listSplit.= "<td></td>";
+							$listSplit.= "<td>" . $split['Licentienummer'] . "</td>";
+							$listSplit.= "</tr>";
+							$listSplit.= "<tr>";
+							$listSplit.= "<td><h4>" . $split['Wedstrijd'] . "</h4></td>";
+							$listSplit.= "<td></td>";
+							$listSplit.= "<td></td>";
+							$listSplit.= "</tr>";
+							$listSplit.= "<tr>";
+							$listSplit.= "<td>" . $split['Plaats'] . "</td>";
+							$listSplit.= "<td>" . $split['Datum'] . "</td>";
+							$listSplit.= "<td>" . $split['Badlengte'] . "</td>";
+							$listSplit.= "</tr>";
+							$listSplit.= "<tr>";
+							$listSplit.= "<td><h4>" . $split['Afstand'] . "</h4></td>";
+							$listSplit.= "<td></td>";
+							$listSplit.= "<td></td>";
+							$listSplit.= "</tr>";
+							$listSplit.= "<tr>";
+							$listSplit.= "<td>" . $split['Tijd'] . "</td>";
+							$listSplit.= "<td></td>";
+							$listSplit.= "<td></td>";
+							$listSplit.= "</tr>";
+							
+							$listSplit.= "<tr>";
+							$listSplit.= "<td><h4>50m</h4></td>";
+							$listSplit.= "<td>--.--</td>";
+							$listSplit.= "<td>" . $split['M50'] . "</td>";
+							$listSplit.= "</tr>";
+							
+							$listSplit.= "<tr>";
+							$listSplit.= "<td><h4>100m</h4></td>";
+							$split100 = $split['M100'] - $split['M50'];
+							$listSplit.= "<td>" . $split100 . "</td>";
+							$listSplit.= "<td>" . $split['M100'] . "</td>";
+							$listSplit.= "</tr>";
+							
+							$listSplit.= "<tr>";
+							$listSplit.= "<td><h4>200m</h4></td>";
+							$split200 = $split['M200'] - $split['M100'];
+							$listSplit.= "<td>" . $split200 . "</td>";
+							$listSplit.= "<td>" . $split['M200'] . "</td>";
+							$listSplit.= "</tr>";
+							
+							$listSplit.= "<tr>";
+							$listSplit.= "<td><h4>400m</h4></td>";
+							$split400 = $split['M400'] - $split['M200'];
+							$listSplit.= "<td>" . $split400 . "</td>";
+							$listSplit.= "<td>" . $split['M400'] . "</td>";
+							$listSplit.= "</tr>";
+							
+							$listSplit.= "<tr>";
+							$listSplit.= "<td><h4>800m</h4></td>";
+							$split800 = $split['M800'] - $split['M400'];
+							$listSplit.= "<td>" . $split800 . "</td>";
+							$listSplit.= "<td>" . $split['M800'] . "</td>";
+							$listSplit.= "</tr>";
+							
+							$listSplit.= "<tr>";
+							$listSplit.= "<td><h4>1500m</h4></td>";
+							$split1500 = $split['M1500'] - $split['M800'];
+							$listSplit.= "<td>" . $split1500 . "</td>";
+							$listSplit.= "<td>" . $split['M1500'] . "</td>";
+							$listSplit.= "</tr>";
+							echo $listSplit;
 						}
 					?>
-            	</ul>          
-            </section>
+            	</table>
+			</section>
             
 	    </div>
 	    <footer>

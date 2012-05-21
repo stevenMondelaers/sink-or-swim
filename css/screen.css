@@ -412,6 +412,22 @@ a.username.menu-open span {
 	background-color: #e8e8e8;
 }
 
+#splittijd{
+	margin-top: 20px;
+}
+
+#splittijd td{
+	width: 200px;
+	text-align: left;
+}
+
+#splittijd tr{
+	height: 20px;
+}
+
+#splittijd tr:nth-child(even){
+	background-color: #e8e8e8;
+}
 
 /* -------------------------------------------------------Time Registration -------------------------------------------------------- */
 /* -------------------------------------------------------Basic time --------------------------------------------------------------- */
