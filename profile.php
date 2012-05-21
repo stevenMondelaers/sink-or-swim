@@ -145,7 +145,7 @@ if($rankings1){
 while($ranking = $rankings1->fetch_array()){
 							?>
 							<tr>
-								<td><a href="#"> <?php
+								<td><a href="splittimes?id=" <?php $ranking['ResultaatID'] ?>> <?php
 								if ((substr($ranking['Tijd'] / 100 / 60, 0, strrpos($ranking['Tijd'] / 100 / 60, '.'))) < 10 && (((($ranking['Tijd'] - substr($ranking['Tijd'], -2)) / 100 / 60) - (substr($ranking['Tijd'] / 100 / 60, 0, strrpos($ranking['Tijd'] / 100 / 60, '.')))) * 60) < 10) {
 									$timeFormat = "0";
 									$timeFormat .= (substr($ranking['Tijd'] / 100 / 60, 0, strrpos($ranking['Tijd'] / 100 / 60, '.')));
