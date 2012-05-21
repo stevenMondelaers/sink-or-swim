@@ -3,6 +3,7 @@ session_start();
 
 include_once ('classes/user.class.php');
 include_once ('classes/time.class.php');
+include_once('classes/database.class.php');
 
 $splitId = $_GET['id'];
 
@@ -34,7 +35,12 @@ try
 	        ?>
             <section>
             	<ul>
-
+					<?php
+						while($split = $splitData->fetch_array()){
+							print_r($split);
+							echo "<br />";
+						}
+					?>
             	</ul>          
             </section>
             

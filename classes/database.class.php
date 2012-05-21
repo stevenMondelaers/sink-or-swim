@@ -140,7 +140,7 @@ ORDER BY tijd ASC";
 	
 	public function getSplitData($p_iId){
 		$id = $this -> link -> real_escape_string($p_iId);
-		$sql = "SELECT afstand.Omschrijving as Afstand, resultaat.Tijd as Tijd, wedstrijd.Naam as Wedstrijd, wedstrijd.Datum as Datum, badlengte.Omschrijving as Badlengte, Zwemmer.Naam as Naam, Zwemmer.Voornaam as Voornaam, M50, M100, M200, M400, M800, M1500
+		$sql = "SELECT afstand.Omschrijving as Afstand, resultaat.Tijd as Tijd, wedstrijd.Naam as Wedstrijd, wedstrijd.Datum as Datum, badlengte.Omschrijving as Badlengte, zwemmer.Naam as Naam, zwemmer.Voornaam as Voornaam, M50, M100, M200, M400, M800, M1500
 				FROM resultaat INNER JOIN afstand
 				ON resultaat.AfstandID = afstand.AfstandID
 				INNER JOIN zwemmer
