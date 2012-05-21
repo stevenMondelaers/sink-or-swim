@@ -8,7 +8,7 @@ class Database {
 
 	private $m_sHost = "localhost";
 	private $m_sUser = "root";
-	private $m_sPassword = "";
+	private $m_sPassword = "root";
 	private $m_sDatabase = "p99_project";
 	public $link = null;
 

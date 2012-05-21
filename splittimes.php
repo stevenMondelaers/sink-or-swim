@@ -1,11 +1,8 @@
 <?php
 session_start();
 
-include_once ('classes/database.class.php');
 include_once ('classes/user.class.php');
 include_once ('classes/time.class.php');
-
-$db = new Database();
 
 $splitId = $_GET['id'];
 

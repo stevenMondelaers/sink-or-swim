@@ -135,15 +135,19 @@ while ($afstand = $afstanden -> fetch_array()) {
 							<?php
 if($rankings1){
 							?>
+							<thead>
 							<tr>
 								<th>Time</th>
 								<th>Date</th>
 								<th>Place</th>
 								<th></th>
 							</tr>
+							</thead>
+							<tbody id="shortCourse">
 							<?php
 while($ranking = $rankings1->fetch_array()){
 							?>
+							
 							<tr>
 								<td><a href="#"> <?php
 								if ((substr($ranking['Tijd'] / 100 / 60, 0, strrpos($ranking['Tijd'] / 100 / 60, '.'))) < 10 && (((($ranking['Tijd'] - substr($ranking['Tijd'], -2)) / 100 / 60) - (substr($ranking['Tijd'] / 100 / 60, 0, strrpos($ranking['Tijd'] / 100 / 60, '.')))) * 60) < 10) {
@@ -181,12 +185,14 @@ while($ranking = $rankings1->fetch_array()){
 								<td><?php echo $ranking['Plaats']; ?></td>
 								<td class="medal"></td>
 							</tr>
+							
 							<?php
 							}
 							}else {
 							echo "Geen resultaten gevonden";
 							}
 							?>
+							</tbody>
 						</table>
 					</div>
 
@@ -198,12 +204,15 @@ while($ranking = $rankings1->fetch_array()){
 							<?php
 if($rankings2){
 							?>
+							<thead>
 							<tr>
 								<th>Time</th>
 								<th>Date</th>
 								<th>Place</th>
 								<th></th>
 							</tr>
+							</thead>
+							<tbody id="longCourse">
 							<?php
 while($ranking = $rankings2->fetch_array()){
 							?>
@@ -250,6 +259,7 @@ while($ranking = $rankings2->fetch_array()){
 							echo "Geen resultaten gevonden";
 							}
 							?>
+							</tbody>
 						</table>
 					</div>
 					<div class="clearfix"></div>
