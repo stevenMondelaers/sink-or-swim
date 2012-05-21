@@ -262,9 +262,9 @@ a.username.menu-open span {
     text-shadow:0 -1px 0 #39d;
     padding:4px 10px 5px;
     font-size:11px;
-    //margin:0 5px 10px 265px;
+    margin:0 5px 10px 265px;
     font-weight:bold;
-    //float: right;
+    float: right;
 }
 
 /* -------------------------------------------------------Information--------------------------------------------------------------- */
@@ -385,6 +385,34 @@ a.username.menu-open span {
 #records a{
 	color: #567CB9;
 }
+
+#meetings{
+	margin-top: 20px;
+}
+
+#meetings td{
+	width: 250px;
+}
+
+#meetings tr{
+	height: 20px;
+}
+
+#meetings th{
+	text-align: left;
+	font-size: 14px;
+	border-bottom: 1px solid #444;
+}
+
+#meetings th img{
+	margin-right: 15px;
+}
+
+#meetings tr:nth-child(even){
+	background-color: #e8e8e8;
+}
+
+
 /* -------------------------------------------------------Time Registration -------------------------------------------------------- */
 /* -------------------------------------------------------Basic time --------------------------------------------------------------- */
 

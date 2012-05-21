@@ -54,6 +54,14 @@ VALUES ('$name', '$firstName', '$sex', '$email', '$password', '$birthDate', '$li
 		$sql = "SELECT * FROM zwemmer order by 2";
 		return $this -> link -> query($sql);
 	}
+	
+	public function getAllMeetings(){
+		$sql = "SELECT Naam, Plaats, Datum, Omschrijving 
+				FROM wedstrijd INNER JOIN badlengte
+				ON wedstrijd.BadlengteID = badlengte.BadlengteID
+				ORDER BY Datum DESC";
+		return $this -> link -> query($sql);
+	}
 
 	public function selectDistances() {
 		$sql = "SELECT * FROM afstand";
