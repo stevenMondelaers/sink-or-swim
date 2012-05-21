@@ -279,6 +279,16 @@ class Time{
 		$db -> registerTime($this->m_sCompetition, $this->m_sDistance, $this->m_iTimeFull, $this->m_iReactionFull, $this->m_iM50Full, $this->m_iM100Full, $this->m_iM200Full, $this->m_iM400Full, $this->m_iM800Full, $this->m_iM1500Full);
 	}
 	
+	public function getSplitData($p_iId){
+		$db = new Database();
+		$result = $db->getSplitData($p_iId);
+		if($result -> num_rows == 1){
+			return $result;
+		}else {
+			throw new Exception("Splittimes niet gevonden");
+		}
+	}
+	
 
 }
 
